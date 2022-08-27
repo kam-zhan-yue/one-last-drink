@@ -103,7 +103,9 @@ public class CharacterPopup : Popup
             else
                 characterAnimator.enabled = false;
             dialoguePopup.EnqueueDialogue(currentCustomer.character.name, _response.dialogue);
-            dialoguePopup.EnqueueDialogue(currentCustomer.character.name, currentCustomer.character.GetRandomConnector());
+            //If there is still a request, then queue the connector
+            if(currentCustomer.HasRequest())
+                dialoguePopup.EnqueueDialogue(currentCustomer.character.name, currentCustomer.character.GetRandomConnector());
             dialoguePopup.ShowPopup();
             responseOver = true;
             _onComplete?.Invoke();
@@ -167,7 +169,7 @@ public class CharacterPopup : Popup
         Color invisibleColour = drinkSprite.color;
         Color visibleColour = drinkSprite.color;
         invisibleColour.a = 0f;
-        invisibleColour.a = 1f;
+        visibleColour.a = 1f;
         //Set to invisible, tween to visible
         drinkSprite.color = invisibleColour;
         Tween colourTween = drinkSprite.DOColor(visibleColour, showDuration);
