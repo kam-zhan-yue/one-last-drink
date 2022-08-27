@@ -13,4 +13,5 @@ MonoBehaviour:
   m_Name: Fruit Juice
   m_EditorClassIdentifier: 
   sprite: {fileID: 0}
+  colour: {r: 0.6564277, g: 0.9245283, b: 0.28346387, a: 1}
   description: fruit juicy

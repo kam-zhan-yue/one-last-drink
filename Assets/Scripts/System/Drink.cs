@@ -5,6 +5,7 @@ using UnityEngine.UI;
 public class Drink : ScriptableObject
 {
     public Sprite sprite;
+    public Color colour;
     [TextArea]
     public string description = string.Empty;
 }

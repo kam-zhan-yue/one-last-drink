@@ -1,27 +1,47 @@
 using System.Collections;
 using System.Collections.Generic;
 using Sirenix.OdinInspector;
+using UnityAtoms.BaseAtoms;
 using UnityEngine;
 
 public class Bartender : MonoBehaviour
 {
+    public IntReference maxDrinks;
     public DrinkDatabase drinkDatabase;
-    private Cocktail currentCocktail = new Cocktail();
+    private Cocktail cocktail = new Cocktail();
 
     [Button]
     public void AddDrink(Drink _drink)
     {
-        DrinkEntry drinkEntry = drinkDatabase.GetDrinkEntry(_drink);
-        currentCocktail.AddDrink(drinkEntry);
+        if (CanAddDrink())
+        {
+            DrinkEntry drinkEntry = drinkDatabase.GetDrinkEntry(_drink);
+            AddDrink(drinkEntry);
+        }
     }
-    [Button]
-    public void AddDrink(DrinkEntry _drink)
+
+    public void ClearCocktail()
     {
-        currentCocktail.AddDrink(_drink);
+        cocktail.Empty();
+    }
+    
+    private void AddDrink(DrinkEntry _drink)
+    {
+        cocktail.AddDrink(_drink);
     }
 
     public Cocktail GetCocktail()
     {
-        return currentCocktail;
+        return cocktail;
+    }
+
+    public List<Drink> GetDrinks()
+    {
+        return cocktail.GetDrinks();
+    }
+
+    public bool CanAddDrink()
+    {
+        return cocktail.drinkList.Count < maxDrinks;
     }
 }

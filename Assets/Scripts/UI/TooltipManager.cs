@@ -11,7 +11,6 @@ public class TooltipManager : MonoBehaviour
 
     public TMP_Text titleText;
     public TMP_Text descriptionText;
-    private Camera mainCam;
 
     private void Awake()
     {
@@ -23,7 +22,6 @@ public class TooltipManager : MonoBehaviour
 
     private void Start()
     {
-        mainCam = Camera.main;
         Cursor.visible = true;
         gameObject.SetActiveFast(false);
     }

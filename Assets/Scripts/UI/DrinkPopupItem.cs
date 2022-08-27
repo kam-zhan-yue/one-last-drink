@@ -7,12 +7,16 @@ public class DrinkPopupItem : MonoBehaviour
 {
     public BarPopup barPopup;
     public SpriteRenderer spriteRenderer;
+    public Image image;
     private Drink drink;
-    
+
     public void Init(Drink _drink)
     {
         drink = _drink;
-        spriteRenderer.sprite = drink.sprite;
+        if (drink.sprite != null)
+            spriteRenderer.sprite = drink.sprite;
+        else if(image != null)
+            image.color = drink.colour;
     }
 
     public void OnPointerEnter()

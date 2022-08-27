@@ -5,7 +5,6 @@ using System.Collections.Generic;
 public class Cocktail
 {
     public List<DrinkEntry> drinkList = new();
-    public int maxDrinks = 0;
 
     public DrinkStats GetStats()
     {
@@ -19,15 +18,17 @@ public class Cocktail
     {
         drinkList.Clear();
     }
-
-    public bool CanAddDrink()
-    {
-        return drinkList.Count >= maxDrinks;
-    }
-
+    
     public void AddDrink(DrinkEntry _drink)
     {
-        if(CanAddDrink())
-            drinkList.Add(_drink);
+        drinkList.Add(_drink);
+    }
+
+    public List<Drink> GetDrinks()
+    {
+        List<Drink> drinks = new();
+        for (int i = 0; i < drinkList.Count; ++i)
+            drinks.Add(drinkList[i].drink);
+        return drinks;
     }
 }

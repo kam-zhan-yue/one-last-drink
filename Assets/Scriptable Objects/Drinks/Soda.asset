@@ -13,4 +13,5 @@ MonoBehaviour:
   m_Name: Soda
   m_EditorClassIdentifier: 
   sprite: {fileID: 0}
+  colour: {r: 0.43234125, g: 0.104129605, b: 0.5660378, a: 1}
   description: meoowoww

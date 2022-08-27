@@ -13,4 +13,5 @@ MonoBehaviour:
   m_Name: Beer
   m_EditorClassIdentifier: 
   sprite: {fileID: 0}
+  colour: {r: 0.745283, g: 0.63923246, b: 0.10898005, a: 1}
   description: beer description
