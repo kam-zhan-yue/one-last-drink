@@ -20,8 +20,6 @@ public class BarPopup : Popup
     [NonSerialized, ShowInInspector, ReadOnly]
     private List<DrinkPopupItem> currentDrinkList = new();
 
-    private Drink hoveredDrink;
-    
     public override void InitPopup()
     {
         int numToSpawn = drinkDatabase.drinkList.Count - currentDrinkList.Count;
@@ -57,35 +55,17 @@ public class BarPopup : Popup
 
     public void PointerEnterDrink(Drink _drink)
     {
-        hoveredDrink = _drink;
-        UpdateText();
+        TooltipManager.instance.ShowTooltip(_drink.name, _drink.description);
     }
 
     public void PointerExitDrink(Drink _drink)
     {
-        hoveredDrink = null;
-        UpdateText();
+        TooltipManager.instance.HideTooltip();
     }
 
     public void PointerClickDrink(Drink _drink)
     {
         
-    }
-
-    private void UpdateText()
-    {
-        if (hoveredDrink != null)
-        {
-            drinkTextHolder.gameObject.SetActiveFast(true);
-            drinkTitleText.text = hoveredDrink.name;
-            drinkDescriptionText.text = hoveredDrink.description;
-        }
-        else
-        {
-            drinkTextHolder.gameObject.SetActiveFast(false);
-            drinkTitleText.text = string.Empty;
-            drinkDescriptionText.text = string.Empty;
-        }
     }
 
     public override void HidePopup()
