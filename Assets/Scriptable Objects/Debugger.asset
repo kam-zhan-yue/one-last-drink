@@ -17,5 +17,5 @@ MonoBehaviour:
   testCustomer:
     character: {fileID: 11400000, guid: 85b586dc82aadbe4ab36be48ac1e2b16, type: 2}
   testDrinks:
-  - {fileID: 11400000, guid: 19f0c3a5b3745f3459a982cbeaffec59, type: 2}
+  - {fileID: 11400000, guid: 1f778b83451634a40b72d7ba429d6401, type: 2}
   - {fileID: 11400000, guid: 4b6fb31ea366f4d40b070b30505bbd28, type: 2}

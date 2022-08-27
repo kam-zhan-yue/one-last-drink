@@ -28,6 +28,11 @@ public class Character : ScriptableObject
     public List<string> hateResponseList = new();
     public List<string> connectorsList = new();
 
+    public string GetRandomConnector()
+    {
+        return GetRandom(connectorsList);
+    }
+
     public Sprite GetResponseSprite(Reaction _reaction)
     {
         switch (_reaction)

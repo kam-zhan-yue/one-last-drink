@@ -43,6 +43,11 @@ public class CustomerController : ScriptableObject
         return customerList[currentIndex];
     }
 
+    public bool LastCustomer()
+    {
+        return currentIndex == customerList.Count - 1;
+    }
+
     public bool Completed()
     {
         return currentIndex >= customerList.Count;
