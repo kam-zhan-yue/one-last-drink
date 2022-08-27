@@ -6,6 +6,7 @@ using UnityEngine;
 using Random = System.Random;
 
 [CreateAssetMenu(menuName = "Customer Controller")]
+[InlineEditor()]
 public class CustomerController : ScriptableObject
 {
     public int maxCustomers = 0;
@@ -24,11 +25,17 @@ public class CustomerController : ScriptableObject
         customerList.Clear();
         for (int i = 0; i < characterList.Count; ++i)
         {
-            Customer newCustomer = new();
-            newCustomer.character = characterList[i].character;
-            newCustomer.request = characterList[i].character.requestDatabase.GenerateRequest(random, maxPrompts);
+            Customer newCustomer = GenerateCustomer(characterList[i].character);
             customerList.Add(newCustomer);
         }
+    }
+
+    public Customer GenerateCustomer(Character _character)
+    {
+        Customer customer = new();
+        customer.character = _character;
+        customer.request = _character.requestDatabase.GenerateRequest(random, maxPrompts);
+        return customer;
     }
 
     public Customer GetCurrentCustomer()

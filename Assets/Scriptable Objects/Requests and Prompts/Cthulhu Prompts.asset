@@ -19,18 +19,15 @@ MonoBehaviour:
       nutrition: 5
       sweetness: 0
       freshness: 0
-    specialCombination: []
   - promptString: I want to drink
     stats:
       alcohol: 10
       nutrition: 0
       sweetness: 0
       freshness: 0
-    specialCombination: []
   - promptString: I feel tired
     stats:
       alcohol: 0
       nutrition: 0
       sweetness: 0
-      freshness: 5
-    specialCombination: []
+      freshness: 4.49

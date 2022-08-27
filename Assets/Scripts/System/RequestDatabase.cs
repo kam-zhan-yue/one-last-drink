@@ -11,6 +11,7 @@ public class RequestDatabase : ScriptableObject
     [TableList]
     public List<Prompt> promptList = new List<Prompt>();
 
+    [Button]
     public Request GenerateRequest(Random _random, int _maxPrompts)
     {
         Request request = new();

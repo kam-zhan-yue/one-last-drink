@@ -86,7 +86,7 @@ public class BarPopup : Popup
 
     public void SubmitCocktail()
     {
-        
+        // GameManager.instance.ServeCocktail();
     }
 
     private void UpdatePanel()
