@@ -90,6 +90,7 @@ public class BarPopup : Popup
     public void SubmitCocktail()
     {
         gameManager.ServeCocktail(mixer);
+        ClearCocktail();
     }
 
     private void UpdatePanel()

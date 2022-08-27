@@ -14,8 +14,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   requestDatabase: {fileID: 11400000, guid: 53a045fa40f5e2e4c9373c1557ca13fe, type: 2}
   sprite: {fileID: 0}
-  loveSprite: {fileID: 0}
-  hateSprite: {fileID: 0}
+  neutralAnimation: {fileID: 0}
+  neutralNegativeAnimation: {fileID: 0}
+  hateAnimation: {fileID: 0}
+  loveAnimation: {fileID: 0}
   loveResponseList:
   - How did you know exactly what I wanted? Please get out of my head.
   - ohhhhHHHHH YEAH BABY WE'RE GOING.
@@ -31,7 +33,7 @@ MonoBehaviour:
   unsatisfiedResponseList:
   - I mean, I don't hate it as much as I hate my son.
   - If I weren't a rabbit, I'd be asking for a refund.
-  - Honestly, this is more disapponting than I was to my father.
+  - Honestly, this is more disappointing than I was to my father.
   hateResponseList:
   - You absolute useless heathen. Do you even know what you just poured?
   - Do you find it funny to give something like this to a man in agony?

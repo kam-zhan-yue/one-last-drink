@@ -38,8 +38,16 @@ public class Customer
         return character.GetResponse(_score);
     }
 
+    public bool HasRequest()
+    {
+        return requestListIndex < requestList.Count;
+    }
+    
+
     public Request GetCurrentRequest()
     {
+        if (requestListIndex < 0 || requestListIndex >= requestList.Count)
+            return new Request();
         return requestList[requestListIndex];
     }
 }

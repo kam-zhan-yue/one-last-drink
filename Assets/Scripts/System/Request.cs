@@ -5,8 +5,12 @@ using Sirenix.OdinInspector;
 [Serializable]
 public class Request
 {
-    private DrinkStats requestStats;
-    private string requestString;
+    private DrinkStats requestStats = new DrinkStats();
+    private string requestString = string.Empty;
+
+    public Request()
+    {
+    }
 
     public Request(List<Prompt> promptList)
     {

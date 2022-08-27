@@ -14,8 +14,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   requestDatabase: {fileID: 11400000, guid: d04f6ee6294f9b74c854816ec975fd1c, type: 2}
   sprite: {fileID: 0}
-  loveSprite: {fileID: 0}
-  hateSprite: {fileID: 0}
+  neutralAnimation: {fileID: 7400000, guid: b96c29f45870dd446a6be71443d089f0, type: 2}
+  neutralNegativeAnimation: {fileID: 7400000, guid: 3e453e6b5219fa64d894e295d5aee814, type: 2}
+  hateAnimation: {fileID: 7400000, guid: 52aca21536644f84dbabf26dc33a259a, type: 2}
+  loveAnimation: {fileID: 7400000, guid: ec55df8c3a1d11848b8db8f9e75790d6, type: 2}
   loveResponseList:
   - This is perfect. You wouldn't mind making a couple of these at my place, would
     you?

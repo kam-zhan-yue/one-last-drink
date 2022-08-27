@@ -11,14 +11,13 @@ public class CharacterPopup : Popup
     [FoldoutGroup("UI Objects")] public DialoguePopup dialoguePopup;
     [FoldoutGroup("UI Objects")] public Image characterSprite;
     [FoldoutGroup("UI Objects")] public Image drinkSprite;
+    [FoldoutGroup("UI Objects")] public Animator characterAnimator;
 
     public float showDuration = 1f;
-    [FoldoutGroup("UI Objects")] public Animation characterAnimation;
-
-    public bool canChangeDrink = false;
-    public bool canChangeCharacter = false;
+    private bool responseOver = false;
     
-    public GameEvent characterComplete;
+    public GameEvent requestCompleted;
+    public GameEvent customerCompleted;
     
     private Customer currentCustomer;
     
@@ -34,6 +33,12 @@ public class CharacterPopup : Popup
         ShowPopup();
     }
 
+    [Button]
+    public void Test(string _name)
+    {
+        characterAnimator.Play(_name);
+    }
+
     public override void ShowPopup()
     {
         gameObject.SetActiveFast(true);
@@ -44,8 +49,18 @@ public class CharacterPopup : Popup
         characterSprite.color = invisibleColour;
         characterSprite.sprite = currentCustomer.character.sprite;
 
-        if (currentCustomer.character.neutralAnimation != null)
-            characterAnimation.Play(currentCustomer.character.neutralAnimation.name);
+        AnimationClip clip = currentCustomer.character.neutralAnimation;
+        Debug.Log($"Clip: {clip}");
+        if (clip != null)
+        {
+            characterAnimator.enabled = true;
+            characterAnimator.Play(clip.name);
+        }
+        else
+        {
+            Debug.Log($"Disable the Animator!");   
+            characterAnimator.enabled = false;
+        }
         
         characterSprite.DOColor(originalColour, showDuration).OnComplete(() =>
         {
@@ -54,16 +69,43 @@ public class CharacterPopup : Popup
         });
     }
 
+    //Used to show for a new request
+    public void UpdatePanel(Customer _customer)
+    {
+        currentCustomer = _customer;
+        AnimationClip clip = currentCustomer.character.neutralAnimation;
+        Debug.Log($"Clip: {clip}");
+        if (clip != null)
+        {
+            characterAnimator.enabled = true;
+            characterAnimator.Play(clip.name);
+        }
+        else
+        {
+            Debug.Log($"Disable the Animator!");   
+            characterAnimator.enabled = false;
+        }
+        dialoguePopup.EnqueueDialogue(currentCustomer.character.name, currentCustomer.GetCurrentRequest().ToString());
+        dialoguePopup.ShowPopup();
+    }
+
     public void ShowResponse(Response _response, Action _onComplete = null)
     {
         Sequence serveSequence = PlayServeSequence();
         serveSequence.OnComplete(() =>
         {
-            characterSprite.sprite = currentCustomer.character.GetResponseSprite(_response.reaction);
+            AnimationClip clip = currentCustomer.character.GetResponseAnimation(_response.reaction);
+            if (clip != null)
+            {
+                characterAnimator.enabled = true;
+                characterAnimator.Play(clip.name);
+            }
+            else
+                characterAnimator.enabled = false;
             dialoguePopup.EnqueueDialogue(currentCustomer.character.name, _response.dialogue);
             dialoguePopup.EnqueueDialogue(currentCustomer.character.name, currentCustomer.character.GetRandomConnector());
             dialoguePopup.ShowPopup();
-            canChangeDrink = true;
+            responseOver = true;
             _onComplete?.Invoke();
         });
     }
@@ -79,47 +121,64 @@ public class CharacterPopup : Popup
 
     public void DialoguePanelClicked()
     {
-        dialoguePopup.DialoguePanelClicked();
-        if (canChangeCharacter)
+        if (responseOver && dialoguePopup.CanClose())
         {
-            HidePopup();
-        }
-        else if (canChangeDrink)
-        {
-            canChangeDrink = false;
-            Sequence sequence = DOTween.Sequence();
-            sequence.Append(dialoguePopup.HideSequence());
-            sequence.Append(HideDrinkSequence());
-            sequence.Play();
-            sequence.OnComplete(() =>
+            responseOver = false;
+            Debug.Log("Response Over!");
+            if (currentCustomer.HasRequest())
             {
-
-            });
+                Debug.Log("Customer still has another request, only hide dialogue and drink!");
+                Sequence sequence = DOTween.Sequence();
+                sequence.Append(dialoguePopup.HideSequence());
+                sequence.Append(HideDrinkSequence());
+                sequence.Play();
+                sequence.OnComplete(() =>
+                {
+                    requestCompleted.Raise();
+                });
+            }
+            else
+            {
+                Debug.Log("Customer does not have another request, hide completely!");
+                Sequence sequence = DOTween.Sequence();
+                sequence.Append(dialoguePopup.HideSequence());
+                sequence.Append(HideDrinkSequence());
+                sequence.Append(HideSequence());
+                sequence.Play();
+                sequence.OnComplete(() =>
+                {
+                    customerCompleted.Raise();
+                });
+            }
         }
+        dialoguePopup.DialoguePanelClicked();
     }
     
     public override void HidePopup()
     {
-        HideDrinkSequence().Play();
+        HideSequence().Play();
     }
 
     private Sequence ShowDrinkSequence()
     {
+        Debug.Log("Show Drink Sequence");
         Sequence sequence = DOTween.Sequence();
         drinkSprite.gameObject.SetActiveFast(true);
-        Color originalColour = drinkSprite.color;
-        Color invisibleColour = originalColour;
+        Color invisibleColour = drinkSprite.color;
+        Color visibleColour = drinkSprite.color;
         invisibleColour.a = 0f;
+        invisibleColour.a = 1f;
+        //Set to invisible, tween to visible
         drinkSprite.color = invisibleColour;
-        Tween colourTween = drinkSprite.DOColor(originalColour, showDuration);
+        Tween colourTween = drinkSprite.DOColor(visibleColour, showDuration);
         sequence.Append(colourTween);
         return sequence;
     }
 
     private Sequence HideDrinkSequence()
     {
-        Color originalColour = drinkSprite.color;
-        Color invisibleColour = originalColour;
+        Debug.Log("Hide Drink Sequence");
+        Color invisibleColour = drinkSprite.color;
         invisibleColour.a = 0f;
         Sequence sequence = DOTween.Sequence();
         Tween colourTween = drinkSprite.DOColor(invisibleColour, showDuration);
@@ -133,10 +192,7 @@ public class CharacterPopup : Popup
         Color invisibleColour = originalColour;
         invisibleColour.a = 0f;
         Sequence sequence = DOTween.Sequence();
-        Tween colourTween = characterSprite.DOColor(invisibleColour, showDuration).OnComplete(() =>
-        {
-            characterComplete.Raise();
-        });
+        Tween colourTween = characterSprite.DOColor(invisibleColour, showDuration);
         sequence.Append(colourTween);
         return sequence;
     }

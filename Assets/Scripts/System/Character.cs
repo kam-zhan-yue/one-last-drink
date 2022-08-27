@@ -12,8 +12,6 @@ public class Character : ScriptableObject
 {
     public RequestDatabase requestDatabase;
     public Sprite sprite;
-    public Sprite loveSprite;
-    public Sprite hateSprite;
     public AnimationClip neutralAnimation;
     public AnimationClip neutralNegativeAnimation;
     public AnimationClip hateAnimation;
@@ -37,16 +35,18 @@ public class Character : ScriptableObject
         return GetRandom(connectorsList);
     }
 
-    public Sprite GetResponseSprite(Reaction _reaction)
+    public AnimationClip GetResponseAnimation(Reaction _reaction)
     {
         switch (_reaction)
         {
             case Reaction.Love:
-                return loveSprite;
+                return loveAnimation;
             case Reaction.Hate:
-                return hateSprite;
+                return hateAnimation;
+            case Reaction.Unsatisfied:
+                return neutralNegativeAnimation;
             default:
-                return sprite;
+                return neutralAnimation;
         }
     }
     

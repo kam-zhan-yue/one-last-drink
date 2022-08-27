@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using Sirenix.OdinInspector;
+using UnityAtoms.BaseAtoms;
 using UnityEngine;
 using Random = System.Random;
 
@@ -9,8 +10,8 @@ using Random = System.Random;
 [InlineEditor()]
 public class CustomerController : ScriptableObject
 {
-    public int maxCustomers = 0;
-    public int maxOrders = 0;
+    public IntReference maxCharacters;
+    public IntReference maxRequests;
     public CharacterDatabase characterDatabase;
     
     [NonSerialized, ShowInInspector, ReadOnly]
@@ -20,7 +21,7 @@ public class CustomerController : ScriptableObject
     [Button]
     public List<Customer> GenerateCustomerList()
     {
-        List<CharacterEntry> characterList = random.RandomSubList(characterDatabase.characterList, maxCustomers);
+        List<CharacterEntry> characterList = random.RandomSubList(characterDatabase.characterList, maxCharacters);
         customerList.Clear();
         for (int i = 0; i < characterList.Count; ++i)
         {
@@ -33,7 +34,7 @@ public class CustomerController : ScriptableObject
 
     public Customer GenerateCustomer(Character _character)
     {
-        Customer customer = new(_character, maxOrders);
+        Customer customer = new(_character, maxRequests);
         return customer;
     }
 }

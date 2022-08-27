@@ -12,6 +12,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ee7ced896f2e84544bcec5ba8280396a, type: 3}
   m_Name: Customer Controller
   m_EditorClassIdentifier: 
-  maxCustomers: 2
-  maxPrompts: 2
+  maxCharacters:
+    _usage: 2
+    _value: 0
+    _constant: {fileID: 0}
+    _variable: {fileID: 11400000, guid: c80e934efb652334486014fe703f6e34, type: 2}
+    _variableInstancer: {fileID: 0}
+  maxRequests:
+    _usage: 2
+    _value: 0
+    _constant: {fileID: 0}
+    _variable: {fileID: 11400000, guid: eb6155dd5327e6843a4cfb6594bd9b6a, type: 2}
+    _variableInstancer: {fileID: 0}
   characterDatabase: {fileID: 11400000, guid: ba4c703b75a82d04a8f554dab3189fa0, type: 2}

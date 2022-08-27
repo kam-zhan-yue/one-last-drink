@@ -13,10 +13,10 @@ public class DialoguePopup : Popup
     public float typeSpeed = 15f;
     public Ease ease = Ease.InOutCubic;
     public float showDuration = 0.4f;
+
     private Tween typeWriterTween;
     private Vector3 originalScale = Vector3.zero;
     private bool textScrolling = false;
-
     private string title;
     private Queue<Dialogue> dialogueQueue = new();
     
@@ -43,11 +43,6 @@ public class DialoguePopup : Popup
             Dialogue dialogue = dialogueQueue.Dequeue();
             DisplayDialogue(dialogue);
         }
-        // else
-        // {
-        //     if(canHide) 
-        //         HidePopup();
-        // }
     }
 
     public void EnqueueDialogue(string _title, string _body)
@@ -58,7 +53,12 @@ public class DialoguePopup : Popup
         dialogueQueue.Enqueue(dialogue);
     }
 
-    public void DisplayDialogue(Dialogue _dialogue)
+    public bool CanClose()
+    {
+        return dialogueQueue.Count <= 0 && !textScrolling;
+    }
+
+    private void DisplayDialogue(Dialogue _dialogue)
     {
         DisplayDialogue(_dialogue.title, _dialogue.body);
     }
@@ -71,10 +71,10 @@ public class DialoguePopup : Popup
         float speed = typeSpeed;
         if (speed == 0f)
             speed = 1f;
+        textScrolling = true;
         typeWriterTween = DOTween.To(() => text, _x => text = _x, _dialogue, _dialogue.Length / speed)
             .OnUpdate(() =>
             {
-                textScrolling = true; 
                 descriptionText.SetText(text);
             })
             .OnComplete(() =>
@@ -91,13 +91,11 @@ public class DialoguePopup : Popup
     {
         if (textScrolling)
         {
-            Debug.Log("Killed!");
             typeWriterTween.Kill();
             textScrolling = false;
         }
         else
         {
-            Debug.Log("Clicked!");
             CheckQueue();
         }
     }
