@@ -22,7 +22,7 @@ public class Debugger : ScriptableObject
     [Button]
     public float TestCocktail()
     {
-        Customer customer = customerController.GetCurrentCustomer();
+        Customer customer = testCustomer;
         Cocktail testCocktail = new();
         for (int i = 0; i < testDrinks.Count; ++i)
         {

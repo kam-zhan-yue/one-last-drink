@@ -9,13 +9,11 @@ using Random = System.Random;
 public class RequestDatabase : ScriptableObject
 {
     [TableList]
-    public List<Prompt> promptList = new List<Prompt>();
+    public List<Prompt> promptList = new();
 
     [Button]
-    public Request GenerateRequest(Random _random, int _maxPrompts)
+    public Request GenerateRequest()
     {
-        Request request = new();
-        request.promptList = _random.RandomSubList(promptList, _maxPrompts);
-        return request;
+        return new Request(promptList);
     }
 }
