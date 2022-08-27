@@ -13,6 +13,7 @@ public class GameManager : MonoBehaviour
     public CharacterPopup characterPopup;
     public List<Customer> customerList = new();
     public Customer customer;
+    public GameEvent newRequest;
 
     private int currentIndex = 0;
 
@@ -26,8 +27,11 @@ public class GameManager : MonoBehaviour
     public void StartCharacter()
     {
         GetNewCharacter();
-        if(customer.HasRequest())
+        if (customer.HasRequest())
+        {
             characterPopup.Init(customer);
+            newRequest.Raise();
+        }
     }
 
     private void GetNewCharacter()
@@ -62,6 +66,7 @@ public class GameManager : MonoBehaviour
         //When the player finishes reading the response to the request and a connector, check to see if
         //there are any more requests. If there are no more requests, then move onto the next character.
         characterPopup.UpdatePanel(customer);
+        newRequest.Raise();
     }
 
     public void OnCustomerCompleted()

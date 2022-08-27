@@ -5,6 +5,7 @@ using Sirenix.OdinInspector;
 using TMPro;
 using UnityAtoms.BaseAtoms;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class BarPopup : Popup
 {
@@ -18,6 +19,8 @@ public class BarPopup : Popup
     [FoldoutGroup("UI Objects")] public DrinkPopupItem sampleDrinkPopupItem;
     [FoldoutGroup("UI Objects")] public Transform shakerLayoutGroup;
     [FoldoutGroup("UI Objects")] public ShakerPopupItem sampleShakerPopupItem;
+    [FoldoutGroup("UI Objects")] public Button submitButton;
+
 
     [NonSerialized, ShowInInspector, ReadOnly]
     private List<DrinkPopupItem> currentDrinkList = new();
@@ -64,6 +67,7 @@ public class BarPopup : Popup
 
         sampleDrinkPopupItem.gameObject.SetActiveFast(false);
         sampleShakerPopupItem.gameObject.SetActiveFast(false);
+        submitButton.gameObject.SetActiveFast(false);
         gameObject.SetActiveFast(false);
     }
 
@@ -87,10 +91,16 @@ public class BarPopup : Popup
         UpdatePanel();
     }
 
+    public void NewRequestCreated()
+    {
+        submitButton.gameObject.SetActiveFast(true);
+    }
+
     public void SubmitCocktail()
     {
         gameManager.ServeCocktail(mixer);
         ClearCocktail();
+        submitButton.gameObject.SetActiveFast(false);
     }
 
     private void UpdatePanel()
