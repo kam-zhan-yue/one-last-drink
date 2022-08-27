@@ -31,6 +31,7 @@ public class Request
         return requestStats;
     }
 
+    [Button]
     public override string ToString()
     {
         return requestString;

@@ -31,10 +31,6 @@ public struct DrinkStats
         float sweetnessError = Math.Abs((sweetness - _stats.sweetness) / sweetness);
         float freshnessError = Math.Abs((freshness - _stats.freshness) / freshness);
         
-        Debug.Log("Alcohol err: " + alcoholError);
-        Debug.Log("Alcohol: " + alcohol);
-        Debug.Log("Stats alcohol: " + _stats.alcohol);
-        
         float result = 1f - (0.25f * alcoholError)
             - (0.25f * sweetnessError)
             - (0.25f * nutritionError)
