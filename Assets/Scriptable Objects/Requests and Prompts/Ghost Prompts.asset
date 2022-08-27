@@ -16,69 +16,69 @@ MonoBehaviour:
   - promptString: Hey dude, kinda just looking for something that I can chill with.
     stats:
       alcohol: 0
-      nutrition: 0
-      sweetness: 5.1
-      freshness: 3
+      nutrition: 2
+      sweetness: 3
+      freshness: 5
   - promptString: Even though I'm kinda digging the vibe here, gimme something that'll
       send me on to the next world.
     stats:
-      alcohol: 9.01
-      nutrition: 0
-      sweetness: 2.76
-      freshness: 1.9
+      alcohol: 8
+      nutrition: 1
+      sweetness: 0
+      freshness: 1
   - promptString: Even though it's kinda sick I don't have to breathe, I'm kinda
       looking for a drink that's a breath of fresh air, yknow?
     stats:
-      alcohol: 6.63
-      nutrition: 0.62
-      sweetness: 4.33
-      freshness: 3.91
+      alcohol: 1
+      nutrition: 1
+      sweetness: 1
+      freshness: 7
   - promptString: Today's kinda blown for me dude. Not looking for anything too strong,
       maybe just something to pick me up a little.
     stats:
-      alcohol: 1.65
-      nutrition: 8.81
-      sweetness: 0
-      freshness: 3.27
+      alcohol: 3
+      nutrition: 3
+      sweetness: 1
+      freshness: 3
   - promptString: Hey man, wassup? Could you get me something that could totally
       elevate my swag to a new level?
     stats:
-      alcohol: 4.55
-      nutrition: 0
-      sweetness: 6.76
-      freshness: 7.53
+      alcohol: 4
+      nutrition: 3
+      sweetness: 0
+      freshness: 3
   - promptString: I know you've got some pretty whacky ideas inside of that noggin
       of yours dude. Serve me up one of your most radical drinks.
     stats:
-      alcohol: 9.49
-      nutrition: 9.57
-      sweetness: 9.66
-      freshness: 9.4
+      alcohol: 6
+      nutrition: 2
+      sweetness: 2
+      freshness: 0
   - promptString: Straight up being a ghost can be a drag sometimes. Got anything
       that can refreshen my look on life?
     stats:
-      alcohol: 1.65
-      nutrition: 0
-      sweetness: 0
-      freshness: 9.32
+      alcohol: 1
+      nutrition: 2
+      sweetness: 2
+      freshness: 5
   - promptString: Sup dude, gimme like a total 180 kickflip noseslide crazy drink
       to make my day.
     stats:
-      alcohol: 7.19
-      nutrition: 1.48
-      sweetness: 1.99
-      freshness: 7.61
+      alcohol: 3
+      nutrition: 4
+      sweetness: 2
+      freshness: 1
   - promptString: I kinda dig the vibe of that tentacle chick over there. I'll take
       something that's totally as sweet as her style.
     stats:
-      alcohol: 7.61
-      nutrition: 4.63
-      sweetness: 7.19
-      freshness: 1.57
+      alcohol: 1
+      nutrition: 3
+      sweetness: 5
+      freshness: 1
   - promptString: That rabbit dude it totally messing with my chakras over here.
       Can you pour something that can help bring them back into line?
     stats:
-      alcohol: 3.27
-      nutrition: 9.06
-      sweetness: 6.51
-      freshness: 3.7
+      alcohol: 3
+      nutrition: 5
+      sweetness: 2
+      freshness: 2

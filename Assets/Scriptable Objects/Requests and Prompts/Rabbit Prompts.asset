@@ -15,10 +15,10 @@ MonoBehaviour:
   promptList:
   - promptString: THEY'RE UNDER MY SKIN THEY'RE UNDER MY SKIN THEY'RE UNDER MY SKIN
     stats:
-      alcohol: 3.26
-      nutrition: 5.31
-      sweetness: 8.6
-      freshness: 2.76
+      alcohol: 5
+      nutrition: 2
+      sweetness: 2
+      freshness: 3
   - promptString: Where do you think we go when we die? I'd like a drink that would
       take me there.
     stats:
@@ -60,28 +60,28 @@ MonoBehaviour:
   - promptString: The fresher the drink, the quieter the voices in my head get. Help
       me. Please
     stats:
-      alcohol: 2.11
-      nutrition: 0.71
-      sweetness: 1.37
-      freshness: 10
+      alcohol: 0
+      nutrition: 0
+      sweetness: 5
+      freshness: 7
   - promptString: I was placed in this body as a punishment for all my unspeakable
       actions. Please just give me the sweetness this form desires.
     stats:
-      alcohol: 8.52
-      nutrition: 0
-      sweetness: 8.93
-      freshness: 2.93
+      alcohol: 0
+      nutrition: 2
+      sweetness: 6
+      freshness: 2
   - promptString: Have you seen that tentacle girl? Man I wish we could just *ahem*
       like rabbits. Freshen me up for her, won't you?
     stats:
-      alcohol: 5.31
-      nutrition: 2.19
-      sweetness: 1.78
-      freshness: 9.42
+      alcohol: 2
+      nutrition: 1
+      sweetness: 2
+      freshness: 5
   - promptString: I just got the worst chills ever. Is the ghost of my past here
       to haunt me? Man, just give me something to warm up.
     stats:
-      alcohol: 0
-      nutrition: 9.57
-      sweetness: 3.61
-      freshness: 1.23
+      alcohol: 2
+      nutrition: 6
+      sweetness: 1
+      freshness: 1

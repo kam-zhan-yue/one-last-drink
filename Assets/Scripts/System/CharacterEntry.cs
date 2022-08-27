@@ -5,5 +5,4 @@ using System.Collections.Generic;
 public class CharacterEntry
 {
     public Character character;
-    // public List<Drink> preferenceList = new();
 }
