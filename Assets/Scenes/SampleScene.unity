@@ -372,9 +372,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   customerController: {fileID: 11400000, guid: 08f7adad197985340ac1ebab51988526, type: 2}
+  tips:
+    _usage: 0
+    _value: 0
+    _constant: {fileID: 0}
+    _variable: {fileID: 0}
+    _variableInstancer: {fileID: 0}
+  characterPopup: {fileID: 1083687639}
   customer:
     character: {fileID: 0}
-  characterPopup: {fileID: 1083687639}
 --- !u!4 &163549380
 Transform:
   m_ObjectHideFlags: 0
@@ -568,6 +574,8 @@ GameObject:
   - component: {fileID: 315851061}
   - component: {fileID: 315851063}
   - component: {fileID: 315851062}
+  - component: {fileID: 315851064}
+  - component: {fileID: 315851065}
   m_Layer: 5
   m_Name: Image
   m_TagString: Untagged
@@ -615,7 +623,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: -500499420, guid: ca8bd5458d1f08144bb5cb9344516e49, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -633,6 +641,45 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 315851060}
   m_CullTransparentMesh: 1
+--- !u!95 &315851064
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 315851060}
+  m_Enabled: 0
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 4c95ea3f08eb5654cb4affc41b4a6a0b, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!111 &315851065
+Animation:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 315851060}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Animation: {fileID: 7400000, guid: ec55df8c3a1d11848b8db8f9e75790d6, type: 2}
+  m_Animations:
+  - {fileID: 7400000, guid: 52aca21536644f84dbabf26dc33a259a, type: 2}
+  - {fileID: 7400000, guid: ec55df8c3a1d11848b8db8f9e75790d6, type: 2}
+  - {fileID: 7400000, guid: b96c29f45870dd446a6be71443d089f0, type: 2}
+  - {fileID: 7400000, guid: 3e453e6b5219fa64d894e295d5aee814, type: 2}
+  m_WrapMode: 0
+  m_PlayAutomatically: 1
+  m_AnimatePhysics: 0
+  m_CullingType: 0
 --- !u!1 &497224073
 GameObject:
   m_ObjectHideFlags: 0
@@ -2179,6 +2226,7 @@ MonoBehaviour:
   characterSprite: {fileID: 315851062}
   drinkSprite: {fileID: 1026778830}
   showDuration: 1
+  canChangeDrink: 0
   canChangeCharacter: 0
   characterComplete: {fileID: 11400000, guid: 6f1ae6728fcc6454aaf490bb85f28f56, type: 2}
 --- !u!114 &1083687640

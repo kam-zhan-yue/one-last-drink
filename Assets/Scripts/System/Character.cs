@@ -14,6 +14,10 @@ public class Character : ScriptableObject
     public Sprite sprite;
     public Sprite loveSprite;
     public Sprite hateSprite;
+    public AnimationClip neutralAnimation;
+    public AnimationClip neutralNegativeAnimation;
+    public AnimationClip hateAnimation;
+    public AnimationClip loveAnimation;
 
     private const float LOVE = 0.9f;
     private const float SATISFIED = 0.7f;

@@ -13,12 +13,11 @@ public class CustomerController : ScriptableObject
     public CharacterDatabase characterDatabase;
     
     [NonSerialized, ShowInInspector, ReadOnly]
-    private List<Customer> customerList = new();
-    private int currentIndex = 0;
+    public List<Customer> customerList = new();
     private readonly Random random = new();
 
     [Button]
-    public void GenerateCustomerList()
+    public List<Customer> GenerateCustomerList()
     {
         List<CharacterEntry> characterList = random.RandomSubList(characterDatabase.characterList, maxCustomers);
         customerList.Clear();
@@ -27,6 +26,8 @@ public class CustomerController : ScriptableObject
             Customer newCustomer = GenerateCustomer(characterList[i].character);
             customerList.Add(newCustomer);
         }
+
+        return customerList;
     }
 
     public Customer GenerateCustomer(Character _character)

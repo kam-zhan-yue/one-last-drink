@@ -13,6 +13,7 @@ public class CharacterPopup : Popup
     [FoldoutGroup("UI Objects")] public Image drinkSprite;
 
     public float showDuration = 1f;
+    [FoldoutGroup("UI Objects")] public Animation characterAnimation;
 
     public bool canChangeDrink = false;
     public bool canChangeCharacter = false;
@@ -42,6 +43,10 @@ public class CharacterPopup : Popup
         invisibleColour.a = 0f;
         characterSprite.color = invisibleColour;
         characterSprite.sprite = currentCustomer.character.sprite;
+
+        if (currentCustomer.character.neutralAnimation != null)
+            characterAnimation.Play(currentCustomer.character.neutralAnimation.name);
+        
         characterSprite.DOColor(originalColour, showDuration).OnComplete(() =>
         {
             dialoguePopup.EnqueueDialogue(currentCustomer.character.name, currentCustomer.request.ToString());

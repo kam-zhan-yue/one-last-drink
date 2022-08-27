@@ -28,8 +28,10 @@ public static class StaticHelper
 
     public static List<T> RandomSubList<T>(this Random _rng, List<T> _list, int _maxElements)
     {
-        if (_list.Count < _maxElements)
+        if (_list.Count <= 0)
             return new List<T>(_list);
+        if (_list.Count < _maxElements)
+            return _list;
         List<T> list = new();
         List<int> indexList = new();
         for (int i = 0; i < _maxElements; ++i)

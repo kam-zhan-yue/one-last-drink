@@ -11,7 +11,10 @@ public class GameManager : MonoBehaviour
     public CustomerController customerController;
     public FloatReference tips;
     public CharacterPopup characterPopup;
+    public List<Customer> customerList = new();
     public Customer customer;
+
+    private int currentIndex = 0;
 
     private void Awake()
     {
@@ -24,7 +27,7 @@ public class GameManager : MonoBehaviour
     [Button]
     public void StartGame()
     {
-        customerController.GenerateCustomerList();
+        customerList = customerController.GenerateCustomerList();
     }
 
     [Button]
@@ -36,9 +39,31 @@ public class GameManager : MonoBehaviour
 
     private void GetNewCharacter()
     {
-        customer = customerController.GetCurrentCustomer();
+        customer = customerList[currentIndex];
+    }
+    
+    public Customer GetCurrentCustomer()
+    {
+        if (currentIndex < 0 || currentIndex >= customerList.Count)
+            return null;
+        return customerList[currentIndex];
     }
 
+    private bool LastCustomer()
+    {
+        return currentIndex == customerList.Count - 1;
+    }
+
+    private bool Completed()
+    {
+        return currentIndex >= customerList.Count;
+    }
+
+    private void IncrementCustomer()
+    {
+        currentIndex++;
+    }
+    
     public void ServeCocktail(Mixer _mixer)
     {
         Cocktail cocktail = _mixer.GetCocktail();
@@ -48,7 +73,7 @@ public class GameManager : MonoBehaviour
 
     public void ShowResponse(Character _character, float _score)
     {
-        if (customerController.LastCustomer())
+        if (LastCustomer())
         {
             characterPopup.canChangeCharacter = true;
         }
@@ -66,8 +91,8 @@ public class GameManager : MonoBehaviour
 
     public void ChangeCustomer()
     {
-        customerController.IncrementCustomer();
-        if(customerController.Completed())
+        IncrementCustomer();
+        if(Completed())
             EndGame();
         else
             StartCharacter();
