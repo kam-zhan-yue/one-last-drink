@@ -13,3 +13,34 @@ MonoBehaviour:
   m_Name: Straight Up a Ghost
   m_EditorClassIdentifier: 
   requestDatabase: {fileID: 11400000, guid: 5efebe7dacea82a4295b46a95ee69897, type: 2}
+  sprite: {fileID: 0}
+  loveSprite: {fileID: 0}
+  hateSprite: {fileID: 0}
+  neutralAnimation: {fileID: 0}
+  neutralNegativeAnimation: {fileID: 0}
+  hateAnimation: {fileID: 0}
+  loveAnimation: {fileID: 0}
+  loveResponseList:
+  - Damn bro, that drink was tight as.
+  - Hell yeah, that was some serious swag in a glass.
+  - Yo, dope as my dude.
+  satisfiedResponseList:
+  - Yeah man, you're on the right track with this one.
+  - This is almost kinda sick my bro.
+  - Ynkow what, I'm kinda digging this one.
+  neutralResponseList:
+  - Not sad, but not rad either my dude.
+  - I mean, I kinda dig it I guess.
+  - Uhhhh, a little unorthodox but I guess I'll take it.
+  unsatisfiedResponseList:
+  - I dunno man, kinda expected more from a chill dude like you.
+  - This drink just doesn't match my vibe, man.
+  - I'm gonna be honest man, I'm kinda disappointed.
+  hateResponseList:
+  - Good thing I don't have a stomach to vomit from.
+  - Dying was literally better than drinking this.
+  - What did you just give me? Totally not cool my guy.
+  connectorsList:
+  - Hey, you're chill. I'll stay for another drink.
+  - Don't go ghosting me now and get me another drink my guy.
+  - I think I'll stay for another one of your radical concotions.
