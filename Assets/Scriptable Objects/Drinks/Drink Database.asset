@@ -1,0 +1,57 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1fbbd41a8f7c6cb49bbe4feef537b7a8, type: 3}
+  m_Name: Drink Database
+  m_EditorClassIdentifier: 
+  drinkList:
+  - drink: {fileID: 11400000, guid: afa152e586a20e249907af17169ef30c, type: 2}
+    drinkStats:
+      alcohol: 10
+      nutrition: 0
+      sweetness: 0
+      freshness: 0
+    drinkObject: {fileID: 0}
+  - drink: {fileID: 11400000, guid: 19f0c3a5b3745f3459a982cbeaffec59, type: 2}
+    drinkStats:
+      alcohol: 7
+      nutrition: 0
+      sweetness: 2.9
+      freshness: 0
+    drinkObject: {fileID: 0}
+  - drink: {fileID: 11400000, guid: e31fa8eb2856f844eb69140855f48d65, type: 2}
+    drinkStats:
+      alcohol: 1.4
+      nutrition: 0
+      sweetness: 0
+      freshness: 3.3
+    drinkObject: {fileID: 0}
+  - drink: {fileID: 11400000, guid: edb338ec3f7b10c4a97715df1d7cfef5, type: 2}
+    drinkStats:
+      alcohol: 0
+      nutrition: 1.9
+      sweetness: 3.2
+      freshness: 2.9
+    drinkObject: {fileID: 0}
+  - drink: {fileID: 11400000, guid: 1f778b83451634a40b72d7ba429d6401, type: 2}
+    drinkStats:
+      alcohol: 0
+      nutrition: 7.1
+      sweetness: 0.54
+      freshness: 2.5
+    drinkObject: {fileID: 0}
+  - drink: {fileID: 11400000, guid: 4b6fb31ea366f4d40b070b30505bbd28, type: 2}
+    drinkStats:
+      alcohol: 0
+      nutrition: 0
+      sweetness: 4.5
+      freshness: 8.6
+    drinkObject: {fileID: 0}
