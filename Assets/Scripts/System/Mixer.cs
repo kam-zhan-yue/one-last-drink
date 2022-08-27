@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using Sirenix.OdinInspector;
@@ -5,59 +6,100 @@ using UnityAtoms.BaseAtoms;
 using UnityEngine;
 
 [CreateAssetMenu(menuName = "Mixer")]
+[InlineEditor()]
 public class Mixer : ScriptableObject
 {
     public DrinkDatabase drinkDatabase;
     public IntReference maxDrinks;
     
-    public List<DrinkEntry> drinkList = new();
+    [ShowInInspector, NonSerialized, ReadOnly]
+    private List<DrinkComponent> componentList = new();
+    private const float MAX = 1f;
 
-    public DrinkStats GetStats()
+    public float GetTotalCapacity()
     {
-        DrinkStats stats = new();
-        for (int i = 0; i < drinkList.Count; ++i)
-            stats.AddStats(drinkList[i].drinkStats);
-        return stats;
+        float total = 0f;
+        for (int i = 0; i < componentList.Count; ++i)
+            total += componentList[i].percentage;
+        return total;
     }
 
-    public void Empty()
-    {
-        drinkList.Clear();
-    }
-    
     [Button]
-    public void AddDrink(Drink _drink)
+    public void IncrementDrink(Drink _drink, float _increment)
     {
-        if (CanAddDrink())
+        float totalCapacity = GetTotalCapacity();
+        if (totalCapacity >= MAX)
+            return;
+        int targetIndex = -1;
+        for (int i = 0; i < componentList.Count; ++i)
         {
-            DrinkEntry drinkEntry = drinkDatabase.GetDrinkEntry(_drink);
-            AddDrink(drinkEntry);
+            if (componentList[i].drinkEntry.drink == _drink)
+            {
+                targetIndex = i;
+                break;
+            }
+        }
+
+        //Don't let it go above MAX!!!
+        if (targetIndex >= 0)
+        {
+            if (totalCapacity + _increment >= MAX)
+                componentList[targetIndex].percentage += MAX - totalCapacity;
+            else
+                componentList[targetIndex].percentage += _increment;
+        }
+        else
+        {
+            DrinkComponent component = new();
+            component.drinkEntry = drinkDatabase.GetDrinkEntry(_drink);
+            if (totalCapacity + _increment >= MAX)
+                component.percentage = MAX - totalCapacity;
+            else
+                component.percentage = _increment;
+            componentList.Add(component);
         }
     }
-    
-    private void AddDrink(DrinkEntry _drink)
-    {
-        drinkList.Add(_drink);
-    }
 
-    public List<Drink> GetDrinks()
+    [Button]
+    public void Empty()
     {
-        List<Drink> drinks = new();
-        for (int i = 0; i < drinkList.Count; ++i)
-            drinks.Add(drinkList[i].drink);
-        return drinks;
+        componentList.Clear();
     }
 
     public Cocktail GetCocktail()
     {
         return new Cocktail()
         {
-            drinkList = drinkList
+            componentList = componentList
         };
     }
-    
+
+    [Button]
+    public Gradient CreateGradient()
+    {
+        float totalCapacity = GetTotalCapacity();
+        if (totalCapacity <= 0)
+            return new();
+        int components = componentList.Count;
+        Gradient g = new();
+        GradientColorKey[] gck = new GradientColorKey[components];
+        GradientAlphaKey[] gak = new GradientAlphaKey[components];
+        float cumulativePercentage = 0f;
+        for (int i = 0; i < componentList.Count; ++i)
+        {
+            float time = componentList[i].percentage / totalCapacity;
+            gck[i].color = componentList[i].drinkEntry.drink.colour;
+            gck[i].time = cumulativePercentage + time;
+            gak[i].time = cumulativePercentage + time;
+            gak[i].alpha = 1.0f;
+            cumulativePercentage += time;
+        }
+        g.SetKeys(gck, gak);
+        return g;
+    }
+
     public bool CanAddDrink()
     {
-        return drinkList.Count < maxDrinks;
+        return GetTotalCapacity() < MAX;
     }
 }

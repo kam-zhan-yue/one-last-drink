@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 583f3f16f6d912d47a00d58072abc88f, type: 3}
-  m_Name: Mixer
+  m_Name: Test Mixer
   m_EditorClassIdentifier: 
   drinkDatabase: {fileID: 11400000, guid: 0a7a064019ee43e4db0fed977eb8c5a1, type: 2}
   maxDrinks:

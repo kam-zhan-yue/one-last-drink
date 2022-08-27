@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sprite: {fileID: -1377520386, guid: 6d9bc4c1ca90eb14b9db392de8bdb046, type: 3}
   openedSprite: {fileID: -1534910473, guid: 6d9bc4c1ca90eb14b9db392de8bdb046, type: 3}
-  colour: {r: 0.7830189, g: 0.7571645, b: 0.7571645, a: 1}
+  colour: {r: 0.854902, g: 0.8745099, b: 0.94117653, a: 1}
   description: From the plains of Siberia

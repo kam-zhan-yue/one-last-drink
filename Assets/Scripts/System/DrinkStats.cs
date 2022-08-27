@@ -22,6 +22,16 @@ public struct DrinkStats
         freshness += _stats.freshness;
     }
 
+    public DrinkStats GetModifiedStats(float _multiplier)
+    {
+        DrinkStats stats = new();
+        stats.alcohol = alcohol * _multiplier;
+        stats.nutrition = nutrition * _multiplier;
+        stats.sweetness = sweetness * _multiplier;
+        stats.freshness = freshness * _multiplier;
+        return stats;
+    }
+
     // returns a value between 0 and 1 representing how accurate the made drink is
     public float Compare(DrinkStats _stats)
     {

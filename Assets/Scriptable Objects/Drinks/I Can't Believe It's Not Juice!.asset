@@ -10,9 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a20bd07719d6a114f9c7e1afd8143806, type: 3}
-  m_Name: FIzzy Green Drink
+  m_Name: I Can't Believe It's Not Juice!
   m_EditorClassIdentifier: 
-  sprite: {fileID: -705048116, guid: 2e507c4df823af446b1a7e60b0493031, type: 3}
-  openedSprite: {fileID: -646981577, guid: 2e507c4df823af446b1a7e60b0493031, type: 3}
-  colour: {r: 0.43234125, g: 0.104129605, b: 0.5660378, a: 1}
-  description: For a little razzle dazzle
+  sprite: {fileID: 1835380945, guid: 151f11305451d0549883f6f1e91f457b, type: 3}
+  openedSprite: {fileID: -2103353193, guid: 151f11305451d0549883f6f1e91f457b, type: 3}
+  colour: {r: 0.8470589, g: 0.45882356, b: 0.23137257, a: 1}
+  description: Freshly squeezed for some extra zing

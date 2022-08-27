@@ -12,10 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bbd97a409121db74da502485941b9a0c, type: 3}
   m_Name: Debugger
   m_EditorClassIdentifier: 
-  drinkDatabase: {fileID: 11400000, guid: 0a7a064019ee43e4db0fed977eb8c5a1, type: 2}
   customerController: {fileID: 11400000, guid: 08f7adad197985340ac1ebab51988526, type: 2}
   testCustomer:
     character: {fileID: 11400000, guid: 85b586dc82aadbe4ab36be48ac1e2b16, type: 2}
-  testDrinks:
-  - {fileID: 11400000, guid: 1f778b83451634a40b72d7ba429d6401, type: 2}
-  - {fileID: 11400000, guid: 4b6fb31ea366f4d40b070b30505bbd28, type: 2}
+    requestList: []
+  testMixer: {fileID: 11400000, guid: 698be86a19f87e640b68bfd823ca088b, type: 2}

@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using MEC;
 using Sirenix.OdinInspector;
 using TMPro;
 using UnityAtoms.BaseAtoms;
@@ -16,18 +17,21 @@ public class BarPopup : Popup
     [FoldoutGroup("System Objects")] public DrinkDatabase drinkDatabase;
 
     [FoldoutGroup("UI Objects")] public TMP_Text tipText;
+    [FoldoutGroup("UI Objects")] public TMP_Text capacityText;
     [FoldoutGroup("UI Objects")] public Transform drinkLayoutGroup;
     [FoldoutGroup("UI Objects")] public DrinkPopupItem sampleDrinkPopupItem;
-    [FoldoutGroup("UI Objects")] public Transform shakerLayoutGroup;
-    [FoldoutGroup("UI Objects")] public ShakerPopupItem sampleShakerPopupItem;
+    [FoldoutGroup("UI Objects")] public Image shakerFillItem;
     [FoldoutGroup("UI Objects")] public Button submitButton;
 
-
+    public float incrementValue = 0.5f;
+    public float timeMultiplier = 0.01f;
+    
     [NonSerialized, ShowInInspector, ReadOnly]
     private List<DrinkPopupItem> currentDrinkList = new();
 
-    private List<ShakerPopupItem> currentShakerList = new();
-    private List<ShakerPopupItem> currentEmptyList = new();
+    private CoroutineHandle pourRoutine;
+    private CoroutineHandle updateRoutine;
+    private Gradient mixerGradient = new();
 
     public override void InitPopup()
     {
@@ -39,17 +43,6 @@ public class BarPopup : Popup
             {
                 DrinkPopupItem popupItem = Instantiate(sampleDrinkPopupItem, drinkLayoutGroup);
                 currentDrinkList.Add(popupItem);
-            }
-        }
-
-        int emptyToSpawn = maxDrinks - currentEmptyList.Count;
-        if (emptyToSpawn > 0)
-        {
-            sampleShakerPopupItem.gameObject.SetActiveFast(true);
-            for (int i = 0; i < emptyToSpawn; ++i)
-            {
-                ShakerPopupItem popupItem = Instantiate(sampleShakerPopupItem, shakerLayoutGroup);
-                currentEmptyList.Add(popupItem);
             }
         }
 
@@ -69,7 +62,6 @@ public class BarPopup : Popup
         UpdateTips();
         
         sampleDrinkPopupItem.gameObject.SetActiveFast(false);
-        sampleShakerPopupItem.gameObject.SetActiveFast(false);
         submitButton.gameObject.SetActiveFast(false);
         gameObject.SetActiveFast(false);
     }
@@ -77,80 +69,65 @@ public class BarPopup : Popup
     public override void ShowPopup()
     {
         gameObject.SetActiveFast(true);
+        Timing.KillCoroutines(updateRoutine);
+        updateRoutine = Timing.RunCoroutine(UpdateRoutine());
     }
 
-    private void AddDrink(Drink _drink)
+    public void StartPouring(Drink _drink)
     {
-        if (mixer.CanAddDrink())
+        Timing.KillCoroutines(pourRoutine);
+        pourRoutine = Timing.RunCoroutine(PourRoutine(_drink));
+    }
+
+    public void EndPouring()
+    {
+        Timing.KillCoroutines(pourRoutine);
+    }
+
+    private IEnumerator<float> UpdateRoutine()
+    {
+        float time = 0;
+        float timeStep = 0.15f;
+        while (true)
         {
-            mixer.AddDrink(_drink);
-            UpdatePanel();
+            time += timeStep;
+            float evaluation = Mathf.PingPong(time * timeMultiplier, 1f);
+            Debug.Log("Evaluation: "+evaluation);
+            shakerFillItem.color = mixerGradient.Evaluate(evaluation);
+            yield return Timing.WaitForSeconds(0.15f);
         }
     }
-
+    
+    private IEnumerator<float> PourRoutine(Drink _drink)
+    {
+        while (true)
+        {
+            mixer.IncrementDrink(_drink, incrementValue);
+            UpdatePanel();
+            yield return Timing.WaitForSeconds(0.15f);
+        }
+    }
+    
     public void ClearCocktail()
     {
         mixer.Empty();
         UpdatePanel();
     }
 
-    public void NewRequestCreated()
-    {
-        submitButton.gameObject.SetActiveFast(true);
-    }
-
-    public void SubmitCocktail()
-    {
-        gameManager.ServeCocktail(mixer);
-        ClearCocktail();
-        submitButton.gameObject.SetActiveFast(false);
-    }
-
     private void UpdatePanel()
     {
-        List<Drink> drinks = mixer.GetDrinks();
-        int numToSpawn = drinks.Count - currentShakerList.Count;
-        if (numToSpawn > 0)
-        {
-            sampleShakerPopupItem.gameObject.SetActiveFast(true);
-            for (int i = 0; i < numToSpawn; ++i)
-            {
-                ShakerPopupItem popupItem = Instantiate(sampleShakerPopupItem, shakerLayoutGroup);
-                currentShakerList.Add(popupItem);
-            }
-        }
-
-        int drinksActive = 0;
-        for (int i = 0; i < currentShakerList.Count; ++i)
-        {
-            if (i < drinks.Count)
-            {
-                currentShakerList[i].gameObject.SetActiveFast(true);
-                currentShakerList[i].transform.SetAsLastSibling();
-                currentShakerList[i].Init(drinks[i]);
-                drinksActive++;
-            }
-            else
-            {
-                currentShakerList[i].gameObject.SetActiveFast(false);
-            }
-        }
-
-        int emptyToActivate = maxDrinks - drinksActive;
-        for (int i = 0; i < currentEmptyList.Count; ++i)
-        {
-            if (i < emptyToActivate)
-            {
-                currentEmptyList[i].gameObject.SetActiveFast(true);
-                currentEmptyList[i].transform.SetAsLastSibling();
-            }
-            else
-            {
-                currentEmptyList[i].gameObject.SetActiveFast(false);
-            }
-        }
+        //Set the Capacity Text
+        float capacity = mixer.GetTotalCapacity();
+        float roundedValue = Mathf.Round(capacity * 10000f) / 100f;
+        capacityText.SetText($"{roundedValue}%");
+        
+        //Scale up the fill
+        Transform shakerTransform = shakerFillItem.transform;
+        Vector3 shakerScale = shakerTransform.localScale;
+        shakerScale.y = capacity;
+        shakerTransform.localScale = shakerScale;
             
-        sampleShakerPopupItem.gameObject.SetActiveFast(false);
+        mixerGradient = mixer.CreateGradient();
     }
 
     public void OnTipChanged()
@@ -174,14 +151,23 @@ public class BarPopup : Popup
         if(TooltipManager.instance != null)
             TooltipManager.instance.HideTooltip();
     }
-
-    public void PointerClickDrink(Drink _drink)
+    
+    public void NewRequestCreated()
     {
-        AddDrink(_drink);
+        submitButton.gameObject.SetActiveFast(true);
+    }
+
+    public void SubmitCocktail()
+    {
+        gameManager.ServeCocktail(mixer);
+        ClearCocktail();
+        submitButton.gameObject.SetActiveFast(false);
     }
 
     public override void HidePopup()
     {
         gameObject.SetActiveFast(false);
+        Timing.KillCoroutines(updateRoutine);
+        Timing.KillCoroutines(pourRoutine);
     }
 }

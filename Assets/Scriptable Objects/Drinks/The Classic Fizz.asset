@@ -10,9 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a20bd07719d6a114f9c7e1afd8143806, type: 3}
-  m_Name: Fruit Juice
+  m_Name: The Classic Fizz
   m_EditorClassIdentifier: 
-  sprite: {fileID: 1835380945, guid: 151f11305451d0549883f6f1e91f457b, type: 3}
-  openedSprite: {fileID: -2103353193, guid: 151f11305451d0549883f6f1e91f457b, type: 3}
-  colour: {r: 0.6564277, g: 0.9245283, b: 0.28346387, a: 1}
-  description: Freshly squeezed for some extra zing
+  sprite: {fileID: -705048116, guid: 2e507c4df823af446b1a7e60b0493031, type: 3}
+  openedSprite: {fileID: -646981577, guid: 2e507c4df823af446b1a7e60b0493031, type: 3}
+  colour: {r: 0.49803925, g: 0.63529414, b: 0.83921576, a: 1}
+  description: For a little razzle dazzle

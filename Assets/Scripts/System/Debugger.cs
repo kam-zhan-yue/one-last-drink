@@ -7,11 +7,10 @@ using UnityEngine;
 [CreateAssetMenu(menuName = "Debugger")]
 public class Debugger : ScriptableObject
 {
-    public DrinkDatabase drinkDatabase;
     public CustomerController customerController;
 
     public Customer testCustomer;
-    public List<Drink> testDrinks = new();
+    public Mixer testMixer;
     
     [Button]
     public void GenerateCustomer(Character _character)
@@ -23,11 +22,6 @@ public class Debugger : ScriptableObject
     public float TestCocktail()
     {
         Customer customer = testCustomer;
-        Cocktail testCocktail = new();
-        for (int i = 0; i < testDrinks.Count; ++i)
-        {
-            testCocktail.AddDrink(drinkDatabase.GetDrinkEntry(testDrinks[i]));
-        }
-        return customer.JudgeCocktail(testCocktail);
+        return customer.JudgeCocktail(testMixer.GetCocktail());
     }
 }

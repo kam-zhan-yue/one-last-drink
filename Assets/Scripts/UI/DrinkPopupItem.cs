@@ -36,8 +36,18 @@ public class DrinkPopupItem : MonoBehaviour
         barPopup.PointerExitDrink(drink);
     }
 
-    public void OnPointerClick()
+    // public void OnPointerClick()
+    // {
+    //     barPopup.PointerClickDrink(drink);
+    // }
+
+    public void StartPouring()
     {
-        barPopup.PointerClickDrink(drink);
+        barPopup.StartPouring(drink);
+    }
+
+    public void EndPouring()
+    {
+        barPopup.EndPouring();
     }
 }
