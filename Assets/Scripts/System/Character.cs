@@ -26,6 +26,7 @@ public class Character : ScriptableObject
     public List<string> neutralResponseList = new();
     public List<string> unsatisfiedResponseList = new();
     public List<string> hateResponseList = new();
+    public List<string> connectorsList = new();
 
     public Sprite GetResponseSprite(Reaction _reaction)
     {
