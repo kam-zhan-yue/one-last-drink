@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a20bd07719d6a114f9c7e1afd8143806, type: 3}
   m_Name: Milk
   m_EditorClassIdentifier: 
-  sprite: {fileID: 0}
+  sprite: {fileID: 1987611428, guid: 0829c9c0ffd7fa640842a8b02bbd4eb3, type: 3}
+  openedSprite: {fileID: 1631796032, guid: 0829c9c0ffd7fa640842a8b02bbd4eb3, type: 3}
   colour: {r: 1, g: 1, b: 1, a: 1}
   description: mmmm milk
