@@ -12,9 +12,18 @@ public class Customer
     public Customer(Character character, int maxOrders)
     {
         this.character = character;
-        
+
         for (int i = 0; i < maxOrders; ++i)
-            requestList.Add(character.requestDatabase.GenerateRequest());
+        {
+            Request request = character.requestDatabase.GenerateRequest();
+            if (requestList.Contains(request))
+            {
+                --i;
+                continue;
+            }
+            
+            requestList.Add(request);
+        }
     }
 
     public float JudgeCocktail(Cocktail _cocktail)
