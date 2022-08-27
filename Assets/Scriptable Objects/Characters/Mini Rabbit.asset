@@ -13,3 +13,31 @@ MonoBehaviour:
   m_Name: Mini Rabbit
   m_EditorClassIdentifier: 
   requestDatabase: {fileID: 11400000, guid: 53a045fa40f5e2e4c9373c1557ca13fe, type: 2}
+  sprite: {fileID: 0}
+  loveSprite: {fileID: 0}
+  hateSprite: {fileID: 0}
+  loveResponseList:
+  - How did you know exactly what I wanted? Please get out of my head.
+  - ohhhhHHHHH YEAH BABY WE'RE GOING.
+  - '*incomprehensibler revving noises*'
+  satisfiedResponseList:
+  - Thanks for the drink, it made my decade.
+  - Despite your looks, you seem to know what you're doing.
+  - Thank you. Just... thank you.
+  neutralResponseList:
+  - I can tell you tried but...
+  - It'll do. It's not like there's anything better in my life.
+  - Try harder.
+  unsatisfiedResponseList:
+  - I mean, I don't hate it as much as I hate my son.
+  - If I weren't a rabbit, I'd be asking for a refund.
+  - Honestly, this is more disapponting than I was to my father.
+  hateResponseList:
+  - You absolute useless heathen. Do you even know what you just poured?
+  - Do you find it funny to give something like this to a man in agony?
+  - I have stared into the depths of hell and this is worse.
+  connectorsList:
+  - I think I might need a couple more.
+  - Hey bud, where do you think you're going? The night's not over yet.
+  - I know my consequences will follow me in the future, but maybe just one more
+    drink.

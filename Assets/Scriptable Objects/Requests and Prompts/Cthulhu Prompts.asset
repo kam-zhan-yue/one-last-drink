@@ -13,21 +13,78 @@ MonoBehaviour:
   m_Name: Cthulhu Prompts
   m_EditorClassIdentifier: 
   promptList:
-  - promptString: I'm hungry
+  - promptString: By Yog-Sothoth, I'm starving from the trip to this realm. Gimme
+      something that'll make this hunger a little more bearable for the night.
     stats:
-      alcohol: 0
-      nutrition: 5
-      sweetness: 0
-      freshness: 0
-  - promptString: I want to drink
+      alcohol: 3
+      nutrition: 7
+      sweetness: 1.5
+      freshness: 5.5
+  - promptString: Would you beilieve that someone just referred to me as "The Great
+      Old One"? Mr Bartender, I don't look THAT old, do I? Oh if I could just drink
+      away this pain.
     stats:
       alcohol: 10
       nutrition: 0
-      sweetness: 0
-      freshness: 0
-  - promptString: I feel tired
+      sweetness: 4
+      freshness: 2.5
+  - promptString: Hey Mr Bartender, you're actually pretty cute. I might just not
+      devour this world when I'm done here. I wanna drink something as sweet as you.
     stats:
-      alcohol: 0
+      alcohol: 3
       nutrition: 0
-      sweetness: 0
-      freshness: 4.49
+      sweetness: 8
+      freshness: 4
+  - promptString: Hey, I've got my first date in a billion years tonight. Won't you
+      help a cute, omnipotent cosmic entity with a drink to freshen me up a little.
+    stats:
+      alcohol: 4
+      nutrition: 1
+      sweetness: 6
+      freshness: 9
+  - promptString: Do people seriously think that I'm some big, ugly octopus?? Surely
+      you've got something that'll make me feel cute again.
+    stats:
+      alcohol: 1.53
+      nutrition: 5.67
+      sweetness: 9.15
+      freshness: 2.47
+  - promptString: "You don't happen to have anything that's s\u0335\u0344\u035A\u0325\u032Be\u0335\u0343\u0310\u0314\u0308\u0357\u0354\u033C\u0356\u0354\u0349\u0331\u0326\u0354h\u0336\u0313\u0313\u0314\u032E\u0349\u0316\u0317a\u0338\u0303\u0314\u034B\u034B\u0303\u0315\u0357\u0350\u0360\u0333\u032A\u032E\u0332\u0329\u0330\u0339\u0347\u0332s\u0336\u0302\u030B\u0340\u030A\u031B\u0344\u0342\u0344\u0340\u0301\u0359\u0326\u0331\u032B\u0316\u0321\u0328\u034D\u0325\u0325\u0348\u032B\u032F\u0327h\u0334\u030C\u0305\u0315\u031A\u0305\u0303\u0314\u033B\u0322\u035A\u031C\u0332\u0345\u0323\u0325
+      \u0337\u0311\u0312\u0350\u0341\u0302\u030D\u0301\u0347\u031C\u0317\u031C\u0317\u034D\u0319\u0325\u031Fa\u0335\u0360\u030B\u0315\u0302\u0350\u0357\u0310\u0348\u0359\u0319\u035Ai\u0336\u035D\u034A\u0310\u0346\u0324\u0319\u035A\u0319\u0321\u0317\u0322\u0356\u0317\u033Cs\u0336\u0302\u0306\u0357\u030E\u0300\u035D\u030E\u0360\u030C\u035B\u0357\u034A\u035D\u0356\u0317\u0345\u031E\u0354\u0318\u032A\u0331\u0327\u0316\u0353h\u0338\u0344\u0360\u0305\u0344\u030B\u0305\u033E\u0307\u034A\u0313\u0352\u0313\u030D\u0349o\u0337\u0344\u0310\u0315\u035B\u0314\u0307\u0360\u0309\u0312\u0343\u0359\u0329\u0356\u0319\u032E\u0324\u031E\u031D\u035A\u032C\u0355\u032An\u0336\u0304\u0343\u0304\u030D\u0351\u0359\u0331\u033B\u0354\u031F
+      \u0334\u0312\u0306\u0344\u033Bd\u0335\u0344\u0358\u0307\u0314\u0352\u0300\u031A\u0303\u033E\u030B\u0317\u0353\u032B\u0324a\u0338\u0310\u031A\u0304\u0315\u031Di\u0336\u0357\u0307\u0306\u0351\u030C\u0340\u0309\u031A\u030A\u0341\u0360\u0311\u0341\u0322\u032C\u0316s\u0336\u0352\u0305\u030B\u0301\u034A\u0314\u0307\u0341\u0344\u0300\u034D\u0332\u034D\u0318\u0332\u0320\u0319o\u0335\u0311\u0312\u0312\u033E\u0322\u032F\u035C\u0326h\u0338\u0350\u0312\u0311\u0313\u035D\u033B\u032C\u0332\u0319\u033A\u0345\u0347\u031D\u0331\u0355\u0354\u0359t\u0338\u0303\u030B\u031A\u0304\u0346\u0300\u0360\u0306\u0352\u0300\u0305\u0321\u031Cs\u0338\u0307\u0360\u031B\u0360\u034C\u0300\u0301\u0357\u0360\u0346\u0347\u0321\u0331\u0321\u032D\u031F\u0331\u0356n\u0336\u030A\u0309\u031B\u034B\u0352\u030E\u035D\u033E\u033E\u0302\u0310\u034D\u032C\u033A\u032D\u0328\u0330\u0329\u0320\u033Ba\u0336\u0346\u0310\u035D\u0300\u030D\u0332\u0326\u032C\u0317\u032D\u0349i\u0338\u0315\u0306\u0357\u033F\u0358\u0311\u032A\u035C\u0316\u0330\u0319\u0319\u0324\u0339s\u0335\u0309\u032E\u0356\u033C\u031E\u035C\u0323\u0323o\u0334\u034A\u030F\u030D\u031B\u0341\u0348\u031F\u0330\u0331\u035C\u032E\u0349\u032C\u033C\u0359\u031E\u033A\u0318
+      around here do you? I want something like that."
+    stats:
+      alcohol: 1.34
+      nutrition: 3.13
+      sweetness: 1.05
+      freshness: 0.49
+  - promptString: Heyyy, I could totally  d e v o u r  a spectacle like you. I'll
+      make sure to take you to a realm you could only imagine if you make me something
+      nice.
+    stats:
+      alcohol: 7.83
+      nutrition: 8.12
+      sweetness: 1.62
+      freshness: 0.87
+  - promptString: Oh darling, I'd take any of your most love-crafted drinks just
+      about now.
+    stats:
+      alcohol: 1.15
+      nutrition: 7.55
+      sweetness: 8.31
+      freshness: 3.13
+  - promptString: That rabbit guy that's lurking around here is giving me the absolute
+      creeps. Surely you can make me something that'll help me forget that he's here.
+    stats:
+      alcohol: 8.4
+      nutrition: 6.05
+      sweetness: 3.79
+      freshness: 7.65
+  - promptString: That poor guy that's straight up a ghost became like that after
+      a night with me, yknow. I promise I won't do that to you if you can make me
+      something bold enough.
+    stats:
+      alcohol: 8.31
+      nutrition: 8.87
+      sweetness: 8.87
+      freshness: 9.15
