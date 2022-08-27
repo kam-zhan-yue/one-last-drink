@@ -20,4 +20,10 @@ public struct DrinkStats
         sweetness += _stats.sweetness;
         freshness += _stats.freshness;
     }
+
+    public float Compare(DrinkStats _stats)
+    {
+        //TO WRITE!!!!
+        return 0f;
+    }
 }

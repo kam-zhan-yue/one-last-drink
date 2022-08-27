@@ -10,8 +10,9 @@ public class CustomerController : ScriptableObject
     public int maxCustomers = 0;
     public int maxPrompts = 0;
     public CharacterDatabase characterDatabase;
-    public List<Customer> customerList = new();
     
+    private List<Customer> customerList = new();
+    private int currentIndex = 0;
     private readonly Random random = new();
 
     [Button]
@@ -26,5 +27,22 @@ public class CustomerController : ScriptableObject
             newCustomer.request = characterList[i].character.requestDatabase.GenerateRequest(random, maxPrompts);
             customerList.Add(newCustomer);
         }
+    }
+
+    public Customer GetCurrentCustomer()
+    {
+        if (currentIndex < 0 || currentIndex >= customerList.Count)
+            return new();
+        return customerList[currentIndex];
+    }
+
+    public bool Completed()
+    {
+        return currentIndex >= customerList.Count;
+    }
+
+    public void IncrementCustomer()
+    {
+        currentIndex++;
     }
 }
