@@ -8,7 +8,7 @@ using UnityEngine;
 
 public class BarPopup : Popup
 {
-    [FoldoutGroup("System Objects")] public Bartender bartender;
+    [FoldoutGroup("System Objects")] public Mixer mixer;
     [FoldoutGroup("System Objects")] public FloatReference tipCounter;
     [FoldoutGroup("System Objects")] public IntReference maxDrinks;
     [FoldoutGroup("System Objects")] public DrinkDatabase drinkDatabase;
@@ -71,27 +71,27 @@ public class BarPopup : Popup
 
     private void AddDrink(Drink _drink)
     {
-        if (bartender.CanAddDrink())
+        if (mixer.CanAddDrink())
         {
-            bartender.AddDrink(_drink);
+            mixer.AddDrink(_drink);
             UpdatePanel();
         }
     }
 
     public void ClearCocktail()
     {
-        bartender.ClearCocktail();
+        mixer.Empty();
         UpdatePanel();
     }
 
     public void SubmitCocktail()
     {
-        // GameManager.instance.ServeCocktail();
+        
     }
 
     private void UpdatePanel()
     {
-        List<Drink> drinks = bartender.GetDrinks();
+        List<Drink> drinks = mixer.GetDrinks();
         int numToSpawn = drinks.Count - currentShakerList.Count;
         if (numToSpawn > 0)
         {

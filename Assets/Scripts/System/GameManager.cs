@@ -7,13 +7,9 @@ using UnityEngine;
 public class GameManager : MonoBehaviour
 {
     public static GameManager instance;
-    public Bartender bartender;
+    public Mixer mixer;
     public CustomerController customerController;
     public CharacterPopup characterPopup;
-
-    [FoldoutGroup("Testing")]
-    [NonSerialized, ShowInInspector, ReadOnly]
-    public Customer testCustomer;
 
     private void Awake()
     {
@@ -38,31 +34,11 @@ public class GameManager : MonoBehaviour
     public void ServeCocktail()
     {
         Customer customer = customerController.GetCurrentCustomer();
-        Cocktail cocktail = bartender.GetCocktail();
+        Cocktail cocktail = mixer.GetCocktail();
         float score = customer.JudgeCocktail(cocktail);
         customerController.IncrementCustomer();
         if(customerController.Completed())
             EndGame();
-    }
-
-    [FoldoutGroup("Testing")]
-    [Button]
-    public void GenerateCustomer(Character _character)
-    {
-        testCustomer = customerController.GenerateCustomer(_character);
-    }
-    
-    [FoldoutGroup("Testing")]
-    [Button]
-    public float TestServeCocktail(List<Drink> _drinks)
-    {
-        Customer customer = customerController.GetCurrentCustomer();
-        Cocktail testCocktail = new();
-        for (int i = 0; i < _drinks.Count; ++i)
-        {
-            testCocktail.AddDrink(bartender.drinkDatabase.GetDrinkEntry(_drinks[i]));
-        }
-        return customer.JudgeCocktail(testCocktail);
     }
 
     private void EndGame()
