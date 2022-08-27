@@ -1,10 +1,12 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Sirenix.OdinInspector;
 using UnityEngine;
 using UnityEngine.UI;
 
 [CreateAssetMenu(menuName = "Character")]
+[InlineEditor()]
 public class Character : ScriptableObject
 {
     public RequestDatabase requestDatabase;

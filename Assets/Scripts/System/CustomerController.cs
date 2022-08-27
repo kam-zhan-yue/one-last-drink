@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using Sirenix.OdinInspector;
@@ -11,6 +12,7 @@ public class CustomerController : ScriptableObject
     public int maxPrompts = 0;
     public CharacterDatabase characterDatabase;
     
+    [NonSerialized, ShowInInspector, ReadOnly]
     private List<Customer> customerList = new();
     private int currentIndex = 0;
     private readonly Random random = new();
