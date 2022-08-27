@@ -10,6 +10,7 @@ public class GameManager : MonoBehaviour
 {
     public CustomerController customerController;
     public FloatReference tips;
+    public GameEndPopup gameEndPopup;
     public CharacterPopup characterPopup;
     public List<Customer> customerList = new();
     public Customer customer;
@@ -20,6 +21,7 @@ public class GameManager : MonoBehaviour
     [Button]
     public void StartGame()
     {
+        currentIndex = 0;
         customerList = customerController.GenerateCustomerList();
     }
 
@@ -36,6 +38,7 @@ public class GameManager : MonoBehaviour
 
     private void GetNewCharacter()
     {
+        //I'm in a rush, i can't change this stupid code rn
         customer = customerList[currentIndex];
     }
     
@@ -102,6 +105,6 @@ public class GameManager : MonoBehaviour
     
     private void EndGame()
     {
-        
+        gameEndPopup.ShowPopup();
     }
 }

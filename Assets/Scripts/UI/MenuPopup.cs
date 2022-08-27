@@ -13,6 +13,8 @@ public class MenuPopup : Popup
 
     public override void ShowPopup()
     {
+        barPopup.HidePopup();
+        gameObject.SetActiveFast(true);
     }
 
     public override void HidePopup()

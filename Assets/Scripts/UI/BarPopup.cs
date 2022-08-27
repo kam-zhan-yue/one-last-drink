@@ -168,5 +168,6 @@ public class BarPopup : Popup
 
     public override void HidePopup()
     {
+        gameObject.SetActiveFast(false);
     }
 }
