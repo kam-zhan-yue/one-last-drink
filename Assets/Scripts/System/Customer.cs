@@ -1,20 +1,25 @@
 using System;
+using System.Collections.Generic;
+using System.Linq;
 
 [Serializable]
 public class Customer
 {
     public Character character;
-    public Request request;
+    public List<Request> requestList = new();
+    private int requestListIndex = 0;
 
-    public Customer(Character character)
+    public Customer(Character character, int maxOrders)
     {
         this.character = character;
-        request = character.requestDatabase.GenerateRequest();
+        
+        for (int i = 0; i < maxOrders; ++i)
+            requestList.Add(character.requestDatabase.GenerateRequest());
     }
 
     public float JudgeCocktail(Cocktail _cocktail)
     {
-        DrinkStats requestStats = request.GetStats();
+        DrinkStats requestStats = requestList[requestListIndex++].GetStats();
         DrinkStats cocktailStats = _cocktail.GetStats();
         return requestStats.Compare(cocktailStats);
     }

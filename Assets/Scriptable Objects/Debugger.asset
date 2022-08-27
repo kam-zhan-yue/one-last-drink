@@ -16,20 +16,6 @@ MonoBehaviour:
   customerController: {fileID: 11400000, guid: 08f7adad197985340ac1ebab51988526, type: 2}
   testCustomer:
     character: {fileID: 11400000, guid: 85b586dc82aadbe4ab36be48ac1e2b16, type: 2}
-    request:
-      promptList:
-      - promptString: I feel tired
-        stats:
-          alcohol: 0
-          nutrition: 0
-          sweetness: 0
-          freshness: 4.49
-      - promptString: I'm hungry
-        stats:
-          alcohol: 0
-          nutrition: 5
-          sweetness: 0
-          freshness: 0
   testDrinks:
   - {fileID: 11400000, guid: 19f0c3a5b3745f3459a982cbeaffec59, type: 2}
   - {fileID: 11400000, guid: 4b6fb31ea366f4d40b070b30505bbd28, type: 2}

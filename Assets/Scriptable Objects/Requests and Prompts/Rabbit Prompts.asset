@@ -13,24 +13,75 @@ MonoBehaviour:
   m_Name: Rabbit Prompts
   m_EditorClassIdentifier: 
   promptList:
-  - promptString: I just got off work
+  - promptString: THEY'RE UNDER MY SKIN THEY'RE UNDER MY SKIN THEY'RE UNDER MY SKIN
     stats:
-      alcohol: 2
-      nutrition: 0
-      sweetness: 2
-      freshness: 0
-    specialCombination: []
-  - promptString: I can't want to die
+      alcohol: 3.26
+      nutrition: 5.31
+      sweetness: 8.6
+      freshness: 2.76
+  - promptString: Where do you think we go when we die? I'd like a drink that would
+      take me there.
     stats:
       alcohol: 10
       nutrition: 0
       sweetness: 0
       freshness: 0
-    specialCombination: []
-  - promptString: Just came from the gymmmm
+  - promptString: Hey, look deep into my eyes. What do you see? Because when I look
+      deep into myself I see only the greatest horrors imaginable. Anyway, pour me
+      a drink.
+    stats:
+      alcohol: 4.41
+      nutrition: 6.46
+      sweetness: 6.13
+      freshness: 3.01
+  - promptString: I didn't always look like this. I was once like you. Imagine that,
+      a human mind stuck in agony iinside a rabbit's head. A drink, please.
+    stats:
+      alcohol: 3.09
+      nutrition: 0
+      sweetness: 8.27
+      freshness: 4.24
+  - promptString: I once served eighteen months in prison for mutliple counts of
+      tax evasion. For some reason the liquor we had a hint of... umami. Take me
+      back there.
+    stats:
+      alcohol: 1.12
+      nutrition: 7.53
+      sweetness: 2.11
+      freshness: 2.19
+  - promptString: I haven't slept in three months. Once you realise you don't need
+      it, it's just mindblowing. Make me something that'll make sure I won't have
+      to sleep ever again.
+    stats:
+      alcohol: 1.61
+      nutrition: 3.34
+      sweetness: 8.93
+      freshness: 8.44
+  - promptString: The fresher the drink, the quieter the voices in my head get. Help
+      me. Please
+    stats:
+      alcohol: 2.11
+      nutrition: 0.71
+      sweetness: 1.37
+      freshness: 10
+  - promptString: I was placed in this body as a punishment for all my unspeakable
+      actions. Please just give me the sweetness this form desires.
+    stats:
+      alcohol: 8.52
+      nutrition: 0
+      sweetness: 8.93
+      freshness: 2.93
+  - promptString: Have you seen that tentacle girl? Man I wish we could just *ahem*
+      like rabbits. Freshen me up for her, won't you?
+    stats:
+      alcohol: 5.31
+      nutrition: 2.19
+      sweetness: 1.78
+      freshness: 9.42
+  - promptString: I just got the worst chills ever. Is the ghost of my past here
+      to haunt me? Man, just give me something to warm up.
     stats:
       alcohol: 0
-      nutrition: 10
-      sweetness: 0
-      freshness: 0
-    specialCombination: []
+      nutrition: 9.57
+      sweetness: 3.61
+      freshness: 1.23

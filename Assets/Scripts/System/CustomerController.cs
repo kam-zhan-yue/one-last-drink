@@ -10,6 +10,7 @@ using Random = System.Random;
 public class CustomerController : ScriptableObject
 {
     public int maxCustomers = 0;
+    public int maxOrders = 0;
     public CharacterDatabase characterDatabase;
     
     [NonSerialized, ShowInInspector, ReadOnly]
@@ -31,7 +32,7 @@ public class CustomerController : ScriptableObject
 
     public Customer GenerateCustomer(Character _character)
     {
-        Customer customer = new(_character);
+        Customer customer = new(_character, maxOrders);
         return customer;
     }
 

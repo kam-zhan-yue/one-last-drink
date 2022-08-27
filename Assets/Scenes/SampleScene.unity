@@ -1881,7 +1881,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gameManager: {fileID: 0}
-  mixer: {fileID: 11400000, guid: 698be86a19f87e640b68bfd823ca088b, type: 2}
+  mixer: {fileID: 0}
   tipCounter:
     _usage: 2
     _value: 0
@@ -1992,7 +1992,7 @@ MonoBehaviour:
   dialoguePopup: {fileID: 2043391994}
   characterSprite: {fileID: 315851062}
   showDuration: 1
-  characterComplete: {fileID: 11400000, guid: 6f1ae6728fcc6454aaf490bb85f28f56, type: 2}
+  characterComplete: {fileID: 0}
 --- !u!1 &1192753713
 GameObject:
   m_ObjectHideFlags: 0

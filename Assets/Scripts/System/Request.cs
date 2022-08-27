@@ -1,6 +1,5 @@
 using System;
 using System.Collections.Generic;
-using System.Text;
 using Sirenix.OdinInspector;
 
 [Serializable]
@@ -11,18 +10,9 @@ public class Request
 
     public Request(List<Prompt> promptList)
     {
-        requestStats = DrinkStats.RandomDrinkStats();
-
-        float maxCompare = 0;
-        foreach (Prompt prompt in promptList)
-        {
-            float compare = requestStats.Compare(prompt.stats);
-            if (compare > maxCompare)
-            {
-                maxCompare = compare;
-                requestString = prompt.promptString;
-            }
-        }
+        Prompt prompt = Prompt.GetRandomPrompt(promptList);
+        requestStats = prompt.stats;
+        requestString = prompt.promptString;
     }
 
     [Button]
