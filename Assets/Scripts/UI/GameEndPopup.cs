@@ -18,7 +18,8 @@ public class GameEndPopup : Popup
     public override void ShowPopup()
     {
         gameObject.SetActiveFast(true);
-        tipText.SetText("Total Tips: $"+tipCounter.Value);
+        float roundedValue = Mathf.Round(tipCounter.Value * 100f) / 100f;
+        tipText.SetText("Total Tips: $"+roundedValue);
     }
 
     public void TryAgain()

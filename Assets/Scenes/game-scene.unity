@@ -373,12 +373,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   customerController: {fileID: 11400000, guid: 08f7adad197985340ac1ebab51988526, type: 2}
-  tips:
-    _usage: 0
+  perfectTip:
+    _usage: 2
     _value: 0
     _constant: {fileID: 0}
-    _variable: {fileID: 0}
+    _variable: {fileID: 11400000, guid: ba9748b29759d6d408ebb4b064f4dbb5, type: 2}
     _variableInstancer: {fileID: 0}
+  tips:
+    _usage: 2
+    _value: 0
+    _constant: {fileID: 0}
+    _variable: {fileID: 11400000, guid: 91cfb74e87c0dce4e9f749bcd092fac6, type: 2}
+    _variableInstancer: {fileID: 0}
+  gameEndPopup: {fileID: 763166975}
   characterPopup: {fileID: 1083687639}
   customerList: []
   customer:
@@ -1031,7 +1038,7 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 2109643994}
-  m_RootOrder: 3
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0.5}
   m_AnchorMax: {x: 1, y: 0.5}
@@ -2157,7 +2164,7 @@ RectTransform:
   m_Children:
   - {fileID: 1876783291}
   m_Father: {fileID: 2109643994}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0.5}
   m_AnchorMax: {x: 1, y: 0.5}
@@ -2221,7 +2228,7 @@ MonoBehaviour:
     _constant: {fileID: 0}
     _variable: {fileID: 11400000, guid: 91cfb74e87c0dce4e9f749bcd092fac6, type: 2}
     _variableInstancer: {fileID: 0}
-  tipText: {fileID: 712892551}
+  tipText: {fileID: 526104359}
 --- !u!1 &809317399
 GameObject:
   m_ObjectHideFlags: 0
@@ -2549,6 +2556,7 @@ GameObject:
   - component: {fileID: 1073103738}
   - component: {fileID: 1073103740}
   - component: {fileID: 1073103741}
+  - component: {fileID: 1073103742}
   m_Layer: 5
   m_Name: Bar Panel
   m_TagString: Untagged
@@ -2643,6 +2651,7 @@ MonoBehaviour:
     _variable: {fileID: 11400000, guid: e0a007e2105a433469bcca9443d38320, type: 2}
     _variableInstancer: {fileID: 0}
   drinkDatabase: {fileID: 11400000, guid: 0a7a064019ee43e4db0fed977eb8c5a1, type: 2}
+  tipText: {fileID: 712892551}
   drinkLayoutGroup: {fileID: 253248607}
   sampleDrinkPopupItem: {fileID: 1387458958}
   shakerLayoutGroup: {fileID: 1940790123}
@@ -2677,6 +2686,44 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &1073103742
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1073103736}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c7a13c337fc59432a95a17e5465b0c03, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _developerDescription: 
+  _unityEventResponse:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1073103740}
+        m_TargetAssemblyTypeName: BarPopup, Assembly-CSharp
+        m_MethodName: OnTipChanged
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  _actionResponses: []
+  _conditions: []
+  _operator: 0
+  _replayEventBufferOnRegister: 1
+  _eventReference:
+    _usage: 0
+    _event: {fileID: 11400000, guid: c43ab246a3171854990f3926f204478c, type: 2}
+    _eventInstancer: {fileID: 0}
+    _variable: {fileID: 0}
+    _variableInstancer: {fileID: 0}
 --- !u!1 &1083687635
 GameObject:
   m_ObjectHideFlags: 0
@@ -5398,8 +5445,8 @@ RectTransform:
   m_Children:
   - {fileID: 1083687636}
   - {fileID: 2043391993}
-  - {fileID: 763166972}
   - {fileID: 512795039}
+  - {fileID: 763166972}
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

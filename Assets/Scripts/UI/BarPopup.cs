@@ -15,6 +15,7 @@ public class BarPopup : Popup
     [FoldoutGroup("System Objects")] public IntReference maxDrinks;
     [FoldoutGroup("System Objects")] public DrinkDatabase drinkDatabase;
 
+    [FoldoutGroup("UI Objects")] public TMP_Text tipText;
     [FoldoutGroup("UI Objects")] public Transform drinkLayoutGroup;
     [FoldoutGroup("UI Objects")] public DrinkPopupItem sampleDrinkPopupItem;
     [FoldoutGroup("UI Objects")] public Transform shakerLayoutGroup;
@@ -65,6 +66,8 @@ public class BarPopup : Popup
             }
         }
 
+        UpdateTips();
+        
         sampleDrinkPopupItem.gameObject.SetActiveFast(false);
         sampleShakerPopupItem.gameObject.SetActiveFast(false);
         submitButton.gameObject.SetActiveFast(false);
@@ -148,6 +151,17 @@ public class BarPopup : Popup
         }
             
         sampleShakerPopupItem.gameObject.SetActiveFast(false);
+    }
+
+    public void OnTipChanged()
+    {
+        UpdateTips();
+    }
+
+    private void UpdateTips()
+    {
+        float roundedValue = Mathf.Round(tipCounter.Value * 100f) / 100f;
+        tipText.SetText("$"+roundedValue);
     }
 
     public void PointerEnterDrink(Drink _drink)

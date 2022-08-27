@@ -9,6 +9,7 @@ using UnityEngine;
 public class GameManager : MonoBehaviour
 {
     public CustomerController customerController;
+    public FloatReference perfectTip;
     public FloatReference tips;
     public GameEndPopup gameEndPopup;
     public CharacterPopup characterPopup;
@@ -61,7 +62,7 @@ public class GameManager : MonoBehaviour
 
     private void UpdateTips(float _score)
     {
-        
+        tips.Value += _score * perfectTip;
     }
 
     public void OnRequestCompleted()
