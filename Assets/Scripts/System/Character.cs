@@ -2,11 +2,13 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 [CreateAssetMenu(menuName = "Character")]
 public class Character : ScriptableObject
 {
     public RequestDatabase requestDatabase;
+    public Sprite sprite;
 
     public string loveResponse = string.Empty;
     public string satisfiedResponse = string.Empty;

@@ -143,7 +143,8 @@ public class BarPopup : Popup
 
     public void PointerExitDrink(Drink _drink)
     {
-        TooltipManager.instance.HideTooltip();
+        if(TooltipManager.instance != null)
+            TooltipManager.instance.HideTooltip();
     }
 
     public void PointerClickDrink(Drink _drink)

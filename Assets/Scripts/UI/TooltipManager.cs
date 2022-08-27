@@ -44,4 +44,9 @@ public class TooltipManager : MonoBehaviour
         titleText.text = string.Empty;
         descriptionText.text = string.Empty;
     }
+
+    private void OnDestroy()
+    {
+        instance = null;
+    }
 }
