@@ -15,4 +15,4 @@ MonoBehaviour:
   sprite: {fileID: 1835380945, guid: 151f11305451d0549883f6f1e91f457b, type: 3}
   openedSprite: {fileID: -2103353193, guid: 151f11305451d0549883f6f1e91f457b, type: 3}
   colour: {r: 0.6564277, g: 0.9245283, b: 0.28346387, a: 1}
-  description: fruit juicy
+  description: Freshly squeezed for some extra zing
