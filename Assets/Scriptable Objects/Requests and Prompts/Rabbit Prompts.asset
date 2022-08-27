@@ -12,4 +12,25 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6d65e97fc33d7a049b5a54c988ca8938, type: 3}
   m_Name: Rabbit Prompts
   m_EditorClassIdentifier: 
-  promptList: []
+  promptList:
+  - promptString: I just got off work
+    stats:
+      alcohol: 2
+      nutrition: 0
+      sweetness: 2
+      freshness: 0
+    specialCombination: []
+  - promptString: I can't want to die
+    stats:
+      alcohol: 10
+      nutrition: 0
+      sweetness: 0
+      freshness: 0
+    specialCombination: []
+  - promptString: Just came from the gymmmm
+    stats:
+      alcohol: 0
+      nutrition: 10
+      sweetness: 0
+      freshness: 0
+    specialCombination: []

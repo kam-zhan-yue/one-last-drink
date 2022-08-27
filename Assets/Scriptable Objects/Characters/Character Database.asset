@@ -14,8 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   characterList:
   - character: {fileID: 11400000, guid: 4d0f67b7a5839fd49ab48db8ffb3070a, type: 2}
-    preferences: []
+    preferenceList: []
   - character: {fileID: 11400000, guid: 85b586dc82aadbe4ab36be48ac1e2b16, type: 2}
-    preferences: []
+    preferenceList: []
   - character: {fileID: 11400000, guid: 435a1dcf066a67d4199e324ef89e39f3, type: 2}
-    preferences: []
+    preferenceList: []

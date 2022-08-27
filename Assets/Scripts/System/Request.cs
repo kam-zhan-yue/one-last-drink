@@ -1,11 +1,13 @@
 using System;
 using System.Collections.Generic;
+using Sirenix.OdinInspector;
 
 [Serializable]
 public class Request
 {
     public List<Prompt> promptList = new();
 
+    [Button]
     public DrinkStats GetStats()
     {
         DrinkStats stats = new();

@@ -12,4 +12,25 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6d65e97fc33d7a049b5a54c988ca8938, type: 3}
   m_Name: Ghost Prompts
   m_EditorClassIdentifier: 
-  promptList: []
+  promptList:
+  - promptString: Living my best life
+    stats:
+      alcohol: 0
+      nutrition: 0
+      sweetness: 5.1
+      freshness: 3
+    specialCombination: []
+  - promptString: Got a new job today~
+    stats:
+      alcohol: 4
+      nutrition: 0
+      sweetness: 4.3
+      freshness: 1.9
+    specialCombination: []
+  - promptString: Wonder what it's like to breathe air
+    stats:
+      alcohol: 3.5
+      nutrition: 3.1
+      sweetness: 0
+      freshness: 3
+    specialCombination: []

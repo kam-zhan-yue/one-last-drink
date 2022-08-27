@@ -9,7 +9,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2dd1324b17c5cfa43ad7dc9af60def2a, type: 3}
-  m_Name: Cthulhu, Destroyer of Worlds
+  m_Script: {fileID: 11500000, guid: ee7ced896f2e84544bcec5ba8280396a, type: 3}
+  m_Name: Customer Controller
   m_EditorClassIdentifier: 
-  requestDatabase: {fileID: 11400000, guid: d04f6ee6294f9b74c854816ec975fd1c, type: 2}
+  maxCustomers: 2
+  maxPrompts: 0
+  characterDatabase: {fileID: 11400000, guid: ba4c703b75a82d04a8f554dab3189fa0, type: 2}
+  customerList: []

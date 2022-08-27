@@ -12,4 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2dd1324b17c5cfa43ad7dc9af60def2a, type: 3}
   m_Name: Straight Up a Ghost
   m_EditorClassIdentifier: 
-  preferences: []
+  requestDatabase: {fileID: 11400000, guid: 5efebe7dacea82a4295b46a95ee69897, type: 2}

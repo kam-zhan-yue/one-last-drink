@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Sirenix.OdinInspector;
 using UnityEngine;
 using Random = System.Random;
 
@@ -11,19 +12,19 @@ public class CustomerController : ScriptableObject
     public CharacterDatabase characterDatabase;
     public List<Customer> customerList = new();
     
-    private Random random = new();
+    private readonly Random random = new();
 
-    public List<Customer> GenerateCustomerList()
+    [Button]
+    public void GenerateCustomerList()
     {
         List<CharacterEntry> characterList = random.RandomSubList(characterDatabase.characterList, maxCustomers);
-        List<Customer> randomList = new();
+        customerList.Clear();
         for (int i = 0; i < characterList.Count; ++i)
         {
             Customer newCustomer = new();
             newCustomer.character = characterList[i].character;
             newCustomer.request = characterList[i].character.requestDatabase.GenerateRequest(random, maxPrompts);
-            randomList.Add(newCustomer);
+            customerList.Add(newCustomer);
         }
-        return randomList;
     }
 }
