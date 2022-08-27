@@ -37,4 +37,9 @@ public class Customer
     {
         return character.GetResponse(_score);
     }
+
+    public Request GetCurrentRequest()
+    {
+        return requestList[requestListIndex];
+    }
 }

@@ -44,7 +44,7 @@ public class CharacterPopup : Popup
         characterSprite.sprite = currentCustomer.character.sprite;
         characterSprite.DOColor(originalColour, showDuration).OnComplete(() =>
         {
-            dialoguePopup.EnqueueDialogue(currentCustomer.character.name, currentCustomer.request.ToString());
+            dialoguePopup.EnqueueDialogue(currentCustomer.character.name, currentCustomer.GetCurrentRequest().ToString());
             dialoguePopup.ShowPopup();
         });
     }
