@@ -15,12 +15,6 @@ public class Character : ScriptableObject
     public Sprite loveSprite;
     public Sprite hateSprite;
 
-    public string loveResponse = string.Empty;
-    public string satisfiedResponse = string.Empty;
-    public string neutralResponse = string.Empty;
-    public string unsatisfiedResponse = string.Empty;
-    public string hateResponse = string.Empty;
-
     private const float LOVE = 0.9f;
     private const float SATISFIED = 0.7f;
     private const float NEUTRAL = 0.5f;
