@@ -4,8 +4,6 @@ using UnityEngine;
 
 public class DrinkCabinetPopup : Popup
 {
-    
-
     public override void InitPopup()
     {
         throw new System.NotImplementedException();

@@ -12,3 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a20bd07719d6a114f9c7e1afd8143806, type: 3}
   m_Name: Soda
   m_EditorClassIdentifier: 
+  sprite: {fileID: 0}
+  description: meoowoww
