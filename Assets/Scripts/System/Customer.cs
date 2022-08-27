@@ -12,4 +12,9 @@ public class Customer
         DrinkStats cocktailStats = _cocktail.GetStats();
         return requestStats.Compare(cocktailStats);
     }
+
+    public Response GetResponse(float _score)
+    {
+        return character.GetResponse(_score);
+    }
 }

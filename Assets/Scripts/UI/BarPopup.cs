@@ -8,6 +8,7 @@ using UnityEngine;
 
 public class BarPopup : Popup
 {
+    [FoldoutGroup("System Objects")] public GameManager gameManager;
     [FoldoutGroup("System Objects")] public Mixer mixer;
     [FoldoutGroup("System Objects")] public FloatReference tipCounter;
     [FoldoutGroup("System Objects")] public IntReference maxDrinks;
@@ -63,10 +64,12 @@ public class BarPopup : Popup
 
         sampleDrinkPopupItem.gameObject.SetActiveFast(false);
         sampleShakerPopupItem.gameObject.SetActiveFast(false);
+        gameObject.SetActiveFast(false);
     }
 
     public override void ShowPopup()
     {
+        gameObject.SetActiveFast(true);
     }
 
     private void AddDrink(Drink _drink)
@@ -86,7 +89,7 @@ public class BarPopup : Popup
 
     public void SubmitCocktail()
     {
-        
+        gameManager.ServeCocktail(mixer);
     }
 
     private void UpdatePanel()

@@ -7,7 +7,6 @@ using UnityEngine;
 public class GameManager : MonoBehaviour
 {
     public static GameManager instance;
-    public Mixer mixer;
     public CustomerController customerController;
     public CharacterPopup characterPopup;
 
@@ -31,14 +30,27 @@ public class GameManager : MonoBehaviour
         characterPopup.Init(customerController.GetCurrentCustomer());
     }
 
-    public void ServeCocktail()
+    public void ServeCocktail(Mixer _mixer)
     {
         Customer customer = customerController.GetCurrentCustomer();
-        Cocktail cocktail = mixer.GetCocktail();
+        Cocktail cocktail = _mixer.GetCocktail();
         float score = customer.JudgeCocktail(cocktail);
+        ShowResponse(customer.character, score);
+    }
+
+    public void ShowResponse(Character _character, float _score)
+    {
+        Response response = _character.GetResponse(_score);
+        characterPopup.UpdatePanel(response);
+    }
+
+    public void ChangeCustomer()
+    {
         customerController.IncrementCustomer();
         if(customerController.Completed())
             EndGame();
+        else
+            characterPopup.Init(customerController.GetCurrentCustomer());
     }
 
     private void EndGame()

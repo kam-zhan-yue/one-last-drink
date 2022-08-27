@@ -12,6 +12,8 @@ public class CharacterPopup : Popup
 
     public float showDuration = 1f;
 
+    public GameEvent characterComplete;
+    
     private Customer currentCustomer;
     
     public override void InitPopup()
@@ -41,7 +43,21 @@ public class CharacterPopup : Popup
         });
     }
 
+    public void UpdatePanel(Response _response)
+    {
+        characterSprite.sprite = currentCustomer.character.GetResponseSprite(_response.reaction);
+        dialoguePopup.DisplayDialogue(currentCustomer.character.name, _response.dialogue);
+    }
+
     public override void HidePopup()
     {
+        Color originalColour = characterSprite.color;
+        Color invisibleColour = originalColour;
+        invisibleColour.a = 0f;
+        dialoguePopup.HidePopup();
+        characterSprite.DOColor(invisibleColour, showDuration).OnComplete(() =>
+        {
+            characterComplete.Raise();
+        });
     }
 }
