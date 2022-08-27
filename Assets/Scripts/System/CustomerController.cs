@@ -10,7 +10,6 @@ using Random = System.Random;
 public class CustomerController : ScriptableObject
 {
     public int maxCustomers = 0;
-    public int maxPrompts = 0;
     public CharacterDatabase characterDatabase;
     
     [NonSerialized, ShowInInspector, ReadOnly]
@@ -32,16 +31,14 @@ public class CustomerController : ScriptableObject
 
     public Customer GenerateCustomer(Character _character)
     {
-        Customer customer = new();
-        customer.character = _character;
-        customer.request = _character.requestDatabase.GenerateRequest(random, maxPrompts);
+        Customer customer = new(_character);
         return customer;
     }
 
     public Customer GetCurrentCustomer()
     {
         if (currentIndex < 0 || currentIndex >= customerList.Count)
-            return new();
+            return null;
         return customerList[currentIndex];
     }
 

@@ -4,7 +4,13 @@ using System;
 public class Customer
 {
     public Character character;
-    public Request request = new Request();
+    public Request request;
+
+    public Customer(Character character)
+    {
+        this.character = character;
+        request = character.requestDatabase.GenerateRequest();
+    }
 
     public float JudgeCocktail(Cocktail _cocktail)
     {

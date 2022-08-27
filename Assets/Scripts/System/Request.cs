@@ -6,25 +6,34 @@ using Sirenix.OdinInspector;
 [Serializable]
 public class Request
 {
-    public List<Prompt> promptList = new();
+    private DrinkStats requestStats;
+    private string requestString;
+
+    public Request(List<Prompt> promptList)
+    {
+        requestStats = DrinkStats.RandomDrinkStats();
+
+        float maxCompare = 0;
+        foreach (Prompt prompt in promptList)
+        {
+            float compare = requestStats.Compare(prompt.stats);
+            if (compare > maxCompare)
+            {
+                maxCompare = compare;
+                requestString = prompt.promptString;
+            }
+        }
+    }
 
     [Button]
     public DrinkStats GetStats()
     {
-        DrinkStats stats = new();
-        for (int i = 0; i < promptList.Count; ++i)
-            stats.AddStats(promptList[i].stats);
-        return stats;
+        return requestStats;
     }
 
+    [Button]
     public override string ToString()
     {
-        StringBuilder sb = new();
-        for (int i = 0; i < promptList.Count; ++i)
-        {
-            sb.Append(promptList[i].promptString);
-            sb.Append(" ");
-        }
-        return sb.ToString();
+        return requestString;
     }
 }
