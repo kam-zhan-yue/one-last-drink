@@ -35,26 +35,4 @@ public class CustomerController : ScriptableObject
         Customer customer = new(_character);
         return customer;
     }
-
-    public Customer GetCurrentCustomer()
-    {
-        if (currentIndex < 0 || currentIndex >= customerList.Count)
-            return null;
-        return customerList[currentIndex];
-    }
-
-    public bool LastCustomer()
-    {
-        return currentIndex == customerList.Count - 1;
-    }
-
-    public bool Completed()
-    {
-        return currentIndex >= customerList.Count;
-    }
-
-    public void IncrementCustomer()
-    {
-        currentIndex++;
-    }
 }

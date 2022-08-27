@@ -7,7 +7,6 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
-    public static GameManager instance;
     public CustomerController customerController;
     public FloatReference tips;
     public CharacterPopup characterPopup;
@@ -16,14 +15,6 @@ public class GameManager : MonoBehaviour
 
     private int currentIndex = 0;
 
-    private void Awake()
-    {
-        if(instance && instance != this)
-            Destroy(gameObject);
-        else
-            instance = this;
-    }
-    
     [Button]
     public void StartGame()
     {
@@ -101,10 +92,5 @@ public class GameManager : MonoBehaviour
     private void EndGame()
     {
         
-    }
-
-    private void OnDestroy()
-    {
-        instance = null;
     }
 }
