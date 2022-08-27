@@ -7,4 +7,10 @@ using UnityEngine;
 public class Character : ScriptableObject
 {
     public RequestDatabase requestDatabase;
+
+    public string loveResponse = string.Empty;
+    public string satisfiedResponse = string.Empty;
+    public string neutralResponse = string.Empty;
+    public string unsatisfiedResponse = string.Empty;
+    public string hateResponse = string.Empty;
 }

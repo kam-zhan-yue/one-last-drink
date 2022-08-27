@@ -13,6 +13,5 @@ MonoBehaviour:
   m_Name: Customer Controller
   m_EditorClassIdentifier: 
   maxCustomers: 2
-  maxPrompts: 0
+  maxPrompts: 2
   characterDatabase: {fileID: 11400000, guid: ba4c703b75a82d04a8f554dab3189fa0, type: 2}
-  customerList: []
