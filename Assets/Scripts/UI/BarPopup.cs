@@ -34,6 +34,8 @@ public class BarPopup : Popup
     private CoroutineHandle updateRoutine;
     private Gradient mixerGradient = new();
 
+    private bool canSubmit = false;
+
     private const string SHAKING = "shaking";
 
     public override void InitPopup()
@@ -72,6 +74,7 @@ public class BarPopup : Popup
         gameObject.SetActiveFast(true);
         Timing.KillCoroutines(updateRoutine);
         updateRoutine = Timing.RunCoroutine(UpdateRoutine());
+        canSubmit = true;
     }
 
     public void StartPouring(Drink _drink)
@@ -124,7 +127,7 @@ public class BarPopup : Popup
     {
         //Set the Capacity Text
         float capacity = mixer.GetTotalCapacity();
-        if(capacity > 0)
+        if(capacity > 0 && canSubmit)
             submitButton.gameObject.SetActiveFast(true);
         
         //Scale up the fill
@@ -149,11 +152,15 @@ public class BarPopup : Popup
     
     public void NewRequestCreated()
     {
-        // submitButton.gameObject.SetActiveFast(false);
+        canSubmit = true;
+        float capacity = mixer.GetTotalCapacity();
+        if(capacity > 0 && canSubmit)
+            submitButton.gameObject.SetActiveFast(true);
     }
 
     public void SubmitCocktail()
     {
+        canSubmit = false;
         AudioManager.instance.Play(AudioManager.SERVE);
         gameManager.ServeCocktail(mixer);
         ClearCocktail();
@@ -162,6 +169,7 @@ public class BarPopup : Popup
 
     public override void HidePopup()
     {
+        mixer.Empty();
         gameObject.SetActiveFast(false);
         Timing.KillCoroutines(updateRoutine);
         Timing.KillCoroutines(pourRoutine);
