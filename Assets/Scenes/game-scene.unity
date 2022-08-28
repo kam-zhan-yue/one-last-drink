@@ -22531,7 +22531,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   titleText: {fileID: 1945167240}
   descriptionText: {fileID: 166242587}
-  typeSpeed: 15
+  typeSpeed: 40
   ease: 10
   showDuration: 0.2
 --- !u!114 &2043391995
