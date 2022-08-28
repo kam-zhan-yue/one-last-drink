@@ -111,6 +111,7 @@ public class BarPopup : Popup
     public void ClearCocktail()
     {
         mixer.Empty();
+        submitButton.gameObject.SetActiveFast(false);
         UpdatePanel();
     }
 
