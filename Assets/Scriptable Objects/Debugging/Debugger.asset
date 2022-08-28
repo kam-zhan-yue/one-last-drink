@@ -14,6 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   customerController: {fileID: 11400000, guid: 08f7adad197985340ac1ebab51988526, type: 2}
   testCustomer:
-    character: {fileID: 11400000, guid: 85b586dc82aadbe4ab36be48ac1e2b16, type: 2}
+    character: {fileID: 11400000, guid: 435a1dcf066a67d4199e324ef89e39f3, type: 2}
     requestList: []
   testMixer: {fileID: 11400000, guid: 698be86a19f87e640b68bfd823ca088b, type: 2}

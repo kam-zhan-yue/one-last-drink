@@ -793,7 +793,7 @@ GameObject:
   - component: {fileID: 315851062}
   - component: {fileID: 315851064}
   m_Layer: 5
-  m_Name: Image
+  m_Name: Character Portrait
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -841,7 +841,7 @@ MonoBehaviour:
       m_Calls: []
   m_Sprite: {fileID: -500499420, guid: ca8bd5458d1f08144bb5cb9344516e49, type: 3}
   m_Type: 0
-  m_PreserveAspect: 0
+  m_PreserveAspect: 1
   m_FillCenter: 1
   m_FillMethod: 4
   m_FillAmount: 1

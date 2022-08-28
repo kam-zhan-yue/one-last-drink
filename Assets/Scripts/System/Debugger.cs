@@ -17,6 +17,12 @@ public class Debugger : ScriptableObject
     {
         testCustomer = customerController.GenerateCustomer(_character);
     }
+
+    [Button]
+    public void GenerateCustomerPrompt(Character _character, int _promptIndex)
+    {
+        testCustomer = customerController.GenerateTestCustomer(_character, _promptIndex);
+    }
     
     [Button]
     public float TestCocktail()

@@ -36,10 +36,14 @@ public struct DrinkStats
     public float Compare(DrinkStats _stats)
     {
         // all these values should be between 0 and 1 also
-        float alcoholError = Math.Abs((alcohol - _stats.alcohol) / alcohol);
-        float nutritionError = Math.Abs((nutrition - _stats.nutrition) / nutrition);
-        float sweetnessError = Math.Abs((sweetness - _stats.sweetness) / sweetness);
-        float freshnessError = Math.Abs((freshness - _stats.freshness) / freshness);
+        float alcoholDivisor=  alcohol == 0 ? 1f : alcohol;
+        float nutritionDivisor =  nutrition == 0 ? 1f : nutrition;
+        float sweetnessDivisor =  sweetness == 0 ? 1f : sweetness;
+        float freshnessDivisor =  freshness == 0 ? 1f : freshness;
+        float alcoholError = Math.Abs((alcohol - _stats.alcohol) / alcoholDivisor);
+        float nutritionError = Math.Abs((nutrition - _stats.nutrition) / nutritionDivisor);
+        float sweetnessError = Math.Abs((sweetness - _stats.sweetness) / sweetnessDivisor);
+        float freshnessError = Math.Abs((freshness - _stats.freshness) / freshnessDivisor);
         
         float result = 1f - (0.25f * alcoholError)
             - (0.25f * sweetnessError)

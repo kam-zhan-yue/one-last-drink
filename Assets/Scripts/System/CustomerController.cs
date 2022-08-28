@@ -37,4 +37,11 @@ public class CustomerController : ScriptableObject
         Customer customer = new(_character, maxRequests);
         return customer;
     }
+
+    [Button]
+    public Customer GenerateTestCustomer(Character _character, int _promptIndex)
+    {
+        Customer customer = new(_character, _promptIndex, true);
+        return customer;
+    }
 }

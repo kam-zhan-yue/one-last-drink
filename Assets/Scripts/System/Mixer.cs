@@ -66,6 +66,7 @@ public class Mixer : ScriptableObject
         componentList.Clear();
     }
 
+    [Button]
     public Cocktail GetCocktail()
     {
         return new Cocktail()

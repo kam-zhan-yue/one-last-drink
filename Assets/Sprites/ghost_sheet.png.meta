@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 3835cf24a3682da4c9ab621045361164
+guid: b86cf25b82ac5804fa036833266e7c01
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -140,13 +140,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: rabbit_sheet_0
+      name: ghost_sheet_0
       rect:
         serializedVersion: 2
-        x: 37
-        y: 0
-        width: 417
-        height: 510
+        x: 138
+        y: 577
+        width: 267
+        height: 391
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -154,20 +154,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 10608e7f2bfb91d4ab109d3e6689f78f
-      internalID: -1734359661
+      spriteID: 48ac884dc71d600429c7496eb73a9350
+      internalID: -2004078071
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: rabbit_sheet_1
+      name: ghost_sheet_1
       rect:
         serializedVersion: 2
-        x: 549
-        y: 2
-        width: 417
-        height: 510
+        x: 651
+        y: 577
+        width: 267
+        height: 391
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -175,20 +175,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f71791b8fa7c30c43905c26a558e1d17
-      internalID: -68921882
+      spriteID: 22ee4e488c129084598fe15f70ade11f
+      internalID: 2001900628
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: rabbit_sheet_5
+      name: ghost_sheet_2
       rect:
         serializedVersion: 2
-        x: 1062
-        y: 0
-        width: 417
-        height: 510
+        x: 1163
+        y: 577
+        width: 267
+        height: 391
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -196,8 +196,50 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9bbf7fc88a2abda4c8833232811f90a0
-      internalID: -489358279
+      spriteID: 577f0d8bc309fd044916465a620fb1b3
+      internalID: -541735297
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ghost_sheet_3
+      rect:
+        serializedVersion: 2
+        x: 138
+        y: 65
+        width: 267
+        height: 391
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5379ea2f99822344cbaf5f6f2b9df0c2
+      internalID: -1060640234
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ghost_sheet_4
+      rect:
+        serializedVersion: 2
+        x: 651
+        y: 65
+        width: 267
+        height: 391
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 90f2fb7a243468a449d1db7784de2bcd
+      internalID: 118168347
       vertices: []
       indices: 
       edges: []
@@ -213,13 +255,11 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      rabbit_sheet_0: -1734359661
-      rabbit_sheet_5: -489358279
-      rabbit_sheet_2: -354301542
-      rabbit_sheet_3: -753105297
-      rabbit_sheet_6: 1284207622
-      rabbit_sheet_4: 1363506926
-      rabbit_sheet_1: -68921882
+      ghost_sheet_4: 118168347
+      ghost_sheet_1: 2001900628
+      ghost_sheet_0: -2004078071
+      ghost_sheet_3: -1060640234
+      ghost_sheet_2: -541735297
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

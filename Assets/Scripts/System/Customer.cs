@@ -26,6 +26,15 @@ public class Customer
         }
     }
 
+    public Customer(Character _character, int _promptIndex, bool _debug)
+    {
+        character = _character;
+        Prompt prompt = character.requestDatabase.promptList[_promptIndex];
+        List<Prompt> promptList = new();
+        promptList.Add(prompt);
+        requestList.Add(new Request(promptList));
+    }
+
     public float JudgeCocktail(Cocktail _cocktail)
     {
         DrinkStats requestStats = requestList[requestListIndex++].GetStats();

@@ -14,12 +14,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   requestDatabase: {fileID: 11400000, guid: 5efebe7dacea82a4295b46a95ee69897, type: 2}
   sprite: {fileID: 0}
-  loveSprite: {fileID: 0}
-  hateSprite: {fileID: 0}
-  neutralAnimation: {fileID: 0}
-  neutralNegativeAnimation: {fileID: 0}
-  hateAnimation: {fileID: 0}
-  loveAnimation: {fileID: 0}
+  neutralAnimation: {fileID: 7400000, guid: 3036571864200eb4983cecbadefdf35d, type: 2}
+  neutralPositiveAnimation: {fileID: 7400000, guid: fb4ddc1f7c95f474ea4c75d949fc3844, type: 2}
+  neutralNegativeAnimation: {fileID: 7400000, guid: 831b29bc2811abd41a5a89938985dfe9, type: 2}
+  hateAnimation: {fileID: 7400000, guid: 93c29de990c75ee4bb79e7fad5eaae01, type: 2}
+  loveAnimation: {fileID: 7400000, guid: fb4ddc1f7c95f474ea4c75d949fc3844, type: 2}
   loveResponseList:
   - Damn bro, that drink was tight as.
   - Hell yeah, that was some serious swag in a glass.
