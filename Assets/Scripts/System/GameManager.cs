@@ -35,6 +35,7 @@ public class GameManager : MonoBehaviour
     [Button]
     public void StartCharacter()
     {
+        Debug.Log("Start Character");
         GetNewCharacter();
         if (customer.HasRequest())
         {
@@ -54,6 +55,7 @@ public class GameManager : MonoBehaviour
         Cocktail cocktail = _mixer.GetCocktail();
         //After judging the cocktail, the index for the next request is incremented
         float score = customer.JudgeCocktail(cocktail);
+        customer.IncrementRequest();
         ShowResponse(customer.character, score);
     }
 
@@ -85,7 +87,10 @@ public class GameManager : MonoBehaviour
         if(Completed())
             EndGame();
         else
+        {
             StartCharacter();
+            characterPopup.ShowPopup();
+        }
     }
 
     public Customer GetCurrentCustomer()

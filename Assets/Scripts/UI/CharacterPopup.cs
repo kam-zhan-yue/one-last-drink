@@ -48,7 +48,8 @@ public class CharacterPopup : Popup
         invisibleColour.a = 0f;
         characterSprite.color = invisibleColour;
         characterSprite.sprite = currentCustomer.character.sprite;
-
+        Color visibleColour = characterSprite.color;
+        visibleColour.a = 1f;
         AnimationClip clip = currentCustomer.character.neutralAnimation;
         if (clip != null)
         {
@@ -60,7 +61,7 @@ public class CharacterPopup : Popup
             characterAnimator.enabled = false;
         }
         
-        characterSprite.DOColor(originalColour, showDuration).OnComplete(() =>
+        characterSprite.DOColor(visibleColour, showDuration).OnComplete(() =>
         {
             dialoguePopup.EnqueueDialogue(currentCustomer.character.name, currentCustomer.GetCurrentRequest().ToString());
             dialoguePopup.ShowPopup();

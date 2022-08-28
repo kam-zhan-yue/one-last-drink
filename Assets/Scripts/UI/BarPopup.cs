@@ -21,6 +21,8 @@ public class BarPopup : Popup
     [FoldoutGroup("UI Objects")] public Image shakerFillItem;
     [FoldoutGroup("UI Objects")] public Button submitButton;
 
+    public Animator shakerAnimator;
+
     public float incrementValue = 0.5f;
     public float pourTimeStep = 0.1f;
     public float timeMultiplier = 0.01f;
@@ -31,6 +33,8 @@ public class BarPopup : Popup
     private CoroutineHandle pourRoutine;
     private CoroutineHandle updateRoutine;
     private Gradient mixerGradient = new();
+
+    private const string SHAKING = "shaking";
 
     public override void InitPopup()
     {
@@ -74,12 +78,14 @@ public class BarPopup : Popup
     {
         AudioManager.instance.Play(AudioManager.POUR);
         Timing.KillCoroutines(pourRoutine);
+        shakerAnimator.SetBool(SHAKING, true);
         pourRoutine = Timing.RunCoroutine(PourRoutine(_drink));
     }
 
     public void EndPouring()
     {
         AudioManager.instance.Stop(AudioManager.POUR);
+        shakerAnimator.SetBool(SHAKING, false);
         Timing.KillCoroutines(pourRoutine);
     }
 
@@ -143,7 +149,7 @@ public class BarPopup : Popup
     
     public void NewRequestCreated()
     {
-        submitButton.gameObject.SetActiveFast(true);
+        // submitButton.gameObject.SetActiveFast(false);
     }
 
     public void SubmitCocktail()

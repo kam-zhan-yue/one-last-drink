@@ -37,9 +37,17 @@ public class Customer
 
     public float JudgeCocktail(Cocktail _cocktail)
     {
-        DrinkStats requestStats = requestList[requestListIndex++].GetStats();
+        if (requestList.Count <= 0f)
+            return 0f;
+        Request request = requestListIndex >= requestList.Count ? requestList[^1] : requestList[requestListIndex];
+        DrinkStats requestStats = request.GetStats();
         DrinkStats cocktailStats = _cocktail.GetStats();
         return requestStats.Compare(cocktailStats);
+    }
+
+    public void IncrementRequest()
+    {
+        requestListIndex++;
     }
 
     public Response GetResponse(float _score)
