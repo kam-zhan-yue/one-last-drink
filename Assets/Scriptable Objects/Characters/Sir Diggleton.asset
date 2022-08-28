@@ -10,14 +10,15 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 2dd1324b17c5cfa43ad7dc9af60def2a, type: 3}
-  m_Name: Mini Rabbit
+  m_Name: Sir Diggleton
   m_EditorClassIdentifier: 
   requestDatabase: {fileID: 11400000, guid: 53a045fa40f5e2e4c9373c1557ca13fe, type: 2}
   sprite: {fileID: 0}
-  neutralAnimation: {fileID: 0}
-  neutralNegativeAnimation: {fileID: 0}
-  hateAnimation: {fileID: 0}
-  loveAnimation: {fileID: 0}
+  neutralAnimation: {fileID: 7400000, guid: 71ea07065ded72741a8d06f102562765, type: 2}
+  neutralPositiveAnimation: {fileID: 7400000, guid: 71ea07065ded72741a8d06f102562765, type: 2}
+  neutralNegativeAnimation: {fileID: 7400000, guid: 71ea07065ded72741a8d06f102562765, type: 2}
+  hateAnimation: {fileID: 7400000, guid: 71ea07065ded72741a8d06f102562765, type: 2}
+  loveAnimation: {fileID: 7400000, guid: 71ea07065ded72741a8d06f102562765, type: 2}
   loveResponseList:
   - How did you know exactly what I wanted? Please get out of my head.
   - ohhhhHHHHH YEAH BABY WE'RE GOING.

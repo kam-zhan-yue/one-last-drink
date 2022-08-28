@@ -13,6 +13,7 @@ public class Character : ScriptableObject
     public RequestDatabase requestDatabase;
     public Sprite sprite;
     public AnimationClip neutralAnimation;
+    public AnimationClip neutralPositiveAnimation;
     public AnimationClip neutralNegativeAnimation;
     public AnimationClip hateAnimation;
     public AnimationClip loveAnimation;
@@ -41,6 +42,8 @@ public class Character : ScriptableObject
         {
             case Reaction.Love:
                 return loveAnimation;
+            case Reaction.Satisfied:
+                return neutralPositiveAnimation;
             case Reaction.Hate:
                 return hateAnimation;
             case Reaction.Unsatisfied:

@@ -50,7 +50,6 @@ public class CharacterPopup : Popup
         characterSprite.sprite = currentCustomer.character.sprite;
 
         AnimationClip clip = currentCustomer.character.neutralAnimation;
-        Debug.Log($"Clip: {clip}");
         if (clip != null)
         {
             characterAnimator.enabled = true;
@@ -73,7 +72,6 @@ public class CharacterPopup : Popup
     {
         currentCustomer = _customer;
         AnimationClip clip = currentCustomer.character.neutralAnimation;
-        Debug.Log($"Clip: {clip}");
         if (clip != null)
         {
             characterAnimator.enabled = true;
@@ -81,7 +79,6 @@ public class CharacterPopup : Popup
         }
         else
         {
-            Debug.Log($"Disable the Animator!");   
             characterAnimator.enabled = false;
         }
         dialoguePopup.EnqueueDialogue(currentCustomer.character.name, currentCustomer.GetCurrentRequest().ToString());
