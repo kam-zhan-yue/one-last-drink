@@ -30,7 +30,7 @@ public class CharacterPopup : Popup
     public void Init(Customer _customer)
     {
         currentCustomer = _customer;
-        ShowPopup();
+        // ShowPopup();
     }
 
     [Button]
@@ -58,7 +58,6 @@ public class CharacterPopup : Popup
         }
         else
         {
-            Debug.Log($"Disable the Animator!");   
             characterAnimator.enabled = false;
         }
         
@@ -126,10 +125,8 @@ public class CharacterPopup : Popup
         if (responseOver && dialoguePopup.CanClose())
         {
             responseOver = false;
-            Debug.Log("Response Over!");
             if (currentCustomer.HasRequest())
             {
-                Debug.Log("Customer still has another request, only hide dialogue and drink!");
                 Sequence sequence = DOTween.Sequence();
                 sequence.Append(dialoguePopup.HideSequence());
                 sequence.Append(HideDrinkSequence());
@@ -141,7 +138,6 @@ public class CharacterPopup : Popup
             }
             else
             {
-                Debug.Log("Customer does not have another request, hide completely!");
                 Sequence sequence = DOTween.Sequence();
                 sequence.Append(dialoguePopup.HideSequence());
                 sequence.Append(HideDrinkSequence());
@@ -158,7 +154,11 @@ public class CharacterPopup : Popup
     
     public override void HidePopup()
     {
-        HideSequence().Play();
+        gameObject.SetActiveFast(false);
+        // Debug.Log("Hide!");
+        // HideSequence().Play().OnComplete(() =>
+        // {
+        // });
     }
 
     private Sequence ShowDrinkSequence()

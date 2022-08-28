@@ -6,7 +6,10 @@ public class MenuPopup : Popup
 {
     public GameManager gameManager;
     public BarPopup barPopup;
-    
+    public DialoguePopup dialoguePopup;
+    public CharacterPopup characterPopup;
+    public TipPopup tipPopup;
+
     public override void InitPopup()
     {
     }
@@ -14,6 +17,9 @@ public class MenuPopup : Popup
     public override void ShowPopup()
     {
         barPopup.HidePopup();
+        dialoguePopup.HidePopup();
+        characterPopup.HidePopup();
+        tipPopup.HidePopup();
         gameObject.SetActiveFast(true);
     }
 
@@ -25,8 +31,10 @@ public class MenuPopup : Popup
     public void StartGame()
     {
         HidePopup();
-        barPopup.ShowPopup();
         gameManager.StartGame();
         gameManager.StartCharacter();
+        barPopup.ShowPopup();
+        characterPopup.ShowPopup();
+        tipPopup.ShowPopup();
     }
 }

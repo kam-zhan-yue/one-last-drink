@@ -16,7 +16,6 @@ public class BarPopup : Popup
     [FoldoutGroup("System Objects")] public IntReference maxDrinks;
     [FoldoutGroup("System Objects")] public DrinkDatabase drinkDatabase;
 
-    [FoldoutGroup("UI Objects")] public TMP_Text tipText;
     [FoldoutGroup("UI Objects")] public TMP_Text capacityText;
     [FoldoutGroup("UI Objects")] public Transform drinkLayoutGroup;
     [FoldoutGroup("UI Objects")] public DrinkPopupItem sampleDrinkPopupItem;
@@ -59,8 +58,6 @@ public class BarPopup : Popup
             }
         }
 
-        UpdateTips();
-        
         sampleDrinkPopupItem.gameObject.SetActiveFast(false);
         submitButton.gameObject.SetActiveFast(false);
         gameObject.SetActiveFast(false);
@@ -92,7 +89,6 @@ public class BarPopup : Popup
         {
             time += timeStep;
             float evaluation = Mathf.PingPong(time * timeMultiplier, 1f);
-            Debug.Log("Evaluation: "+evaluation);
             shakerFillItem.color = mixerGradient.Evaluate(evaluation);
             yield return Timing.WaitForSeconds(0.15f);
         }
@@ -111,7 +107,6 @@ public class BarPopup : Popup
     public void ClearCocktail()
     {
         mixer.Empty();
-        submitButton.gameObject.SetActiveFast(false);
         UpdatePanel();
     }
 
@@ -119,27 +114,18 @@ public class BarPopup : Popup
     {
         //Set the Capacity Text
         float capacity = mixer.GetTotalCapacity();
+        if(capacity > 0)
+            submitButton.gameObject.SetActiveFast(true);
         float roundedValue = Mathf.Round(capacity * 10000f) / 100f;
         capacityText.SetText($"{roundedValue}%");
         
         //Scale up the fill
         Transform shakerTransform = shakerFillItem.transform;
         Vector3 shakerScale = shakerTransform.localScale;
-        shakerScale.y = capacity;
+        shakerScale.x = capacity;
         shakerTransform.localScale = shakerScale;
             
         mixerGradient = mixer.CreateGradient();
-    }
-
-    public void OnTipChanged()
-    {
-        UpdateTips();
-    }
-
-    private void UpdateTips()
-    {
-        float roundedValue = Mathf.Round(tipCounter.Value * 100f) / 100f;
-        tipText.SetText("$"+roundedValue);
     }
 
     public void PointerEnterDrink(Drink _drink)
