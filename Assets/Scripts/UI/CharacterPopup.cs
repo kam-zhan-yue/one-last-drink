@@ -119,6 +119,7 @@ public class CharacterPopup : Popup
 
     public void DialoguePanelClicked()
     {
+        AudioManager.instance.Play(AudioManager.BUTTON);
         if (responseOver && dialoguePopup.CanClose())
         {
             responseOver = false;
@@ -171,6 +172,10 @@ public class CharacterPopup : Popup
         drinkSprite.color = invisibleColour;
         Tween colourTween = drinkSprite.DOColor(visibleColour, showDuration);
         sequence.Append(colourTween);
+        sequence.AppendCallback(() =>
+        {
+            AudioManager.instance.Play(AudioManager.PLACE);
+        });
         return sequence;
     }
 

@@ -30,6 +30,7 @@ public class MenuPopup : Popup
 
     public void StartGame()
     {
+        AudioManager.instance.Play(AudioManager.BUTTON);
         HidePopup();
         gameManager.StartGame();
         gameManager.StartCharacter();

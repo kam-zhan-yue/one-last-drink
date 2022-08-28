@@ -19,6 +19,11 @@ public class GameManager : MonoBehaviour
 
     private int currentIndex = 0;
 
+    private void Start()
+    {
+        AudioManager.instance.Play(AudioManager.BGM);
+    }
+
     [Button]
     public void StartGame()
     {

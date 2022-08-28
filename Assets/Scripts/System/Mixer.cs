@@ -25,11 +25,11 @@ public class Mixer : ScriptableObject
     }
 
     [Button]
-    public void IncrementDrink(Drink _drink, float _increment)
+    public bool IncrementDrink(Drink _drink, float _increment)
     {
         float totalCapacity = GetTotalCapacity();
         if (totalCapacity >= MAX)
-            return;
+            return false;
         int targetIndex = -1;
         for (int i = 0; i < componentList.Count; ++i)
         {
@@ -58,6 +58,8 @@ public class Mixer : ScriptableObject
                 component.percentage = _increment;
             componentList.Add(component);
         }
+
+        return true;
     }
 
     [Button]

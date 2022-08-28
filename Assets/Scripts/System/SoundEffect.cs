@@ -2,8 +2,8 @@ using Sirenix.OdinInspector;
 using UnityEditor;
 using UnityEngine;
 using Random = UnityEngine.Random;
-[CreateAssetMenu(fileName = "NewSoundEffect", menuName = "Audio/New Sound Effect")]
-public class SoundEffectSO : ScriptableObject
+[CreateAssetMenu(fileName = "New Sound Effect", menuName = "Sound Effect")]
+public class SoundEffect : ScriptableObject
 {
     #region config
 
@@ -11,6 +11,9 @@ public class SoundEffectSO : ScriptableObject
 
     [Required] public AudioClip[] clips;
 
+    [BoxGroup("config")] 
+    public bool looping = false;
+    
     [MinMaxSlider(0, 1)] [BoxGroup("config")]
     public Vector2 volume = new Vector2(0.5f, 0.5f);
 
@@ -130,6 +133,7 @@ public class SoundEffectSO : ScriptableObject
         }
 
         // set source config:
+        source.loop = looping;
         source.clip = GetAudioClip();
         source.volume = Random.Range(volume.x, volume.y);
         source.pitch = useSemitones

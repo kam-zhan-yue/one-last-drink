@@ -16,7 +16,6 @@ public class BarPopup : Popup
     [FoldoutGroup("System Objects")] public IntReference maxDrinks;
     [FoldoutGroup("System Objects")] public DrinkDatabase drinkDatabase;
 
-    [FoldoutGroup("UI Objects")] public TMP_Text capacityText;
     [FoldoutGroup("UI Objects")] public Transform drinkLayoutGroup;
     [FoldoutGroup("UI Objects")] public DrinkPopupItem sampleDrinkPopupItem;
     [FoldoutGroup("UI Objects")] public Image shakerFillItem;
@@ -73,12 +72,14 @@ public class BarPopup : Popup
 
     public void StartPouring(Drink _drink)
     {
+        AudioManager.instance.Play(AudioManager.POUR);
         Timing.KillCoroutines(pourRoutine);
         pourRoutine = Timing.RunCoroutine(PourRoutine(_drink));
     }
 
     public void EndPouring()
     {
+        AudioManager.instance.Stop(AudioManager.POUR);
         Timing.KillCoroutines(pourRoutine);
     }
 
@@ -99,7 +100,8 @@ public class BarPopup : Popup
     {
         while (true)
         {
-            mixer.IncrementDrink(_drink, incrementValue);
+            if (!mixer.IncrementDrink(_drink, incrementValue))
+                EndPouring();
             UpdatePanel();
             yield return Timing.WaitForSeconds(pourTimeStep);
         }
@@ -107,6 +109,7 @@ public class BarPopup : Popup
     
     public void ClearCocktail()
     {
+        AudioManager.instance.Play(AudioManager.BUTTON);
         mixer.Empty();
         UpdatePanel();
     }
@@ -117,8 +120,6 @@ public class BarPopup : Popup
         float capacity = mixer.GetTotalCapacity();
         if(capacity > 0)
             submitButton.gameObject.SetActiveFast(true);
-        float roundedValue = Mathf.Round(capacity * 10000f) / 100f;
-        capacityText.SetText($"{roundedValue}%");
         
         //Scale up the fill
         Transform shakerTransform = shakerFillItem.transform;
@@ -147,6 +148,7 @@ public class BarPopup : Popup
 
     public void SubmitCocktail()
     {
+        AudioManager.instance.Play(AudioManager.SERVE);
         gameManager.ServeCocktail(mixer);
         ClearCocktail();
         submitButton.gameObject.SetActiveFast(false);

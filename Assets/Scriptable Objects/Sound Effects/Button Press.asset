@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 53759cf07dd160548ae244aa721dcc1a, type: 3}
+  m_Name: Button Press
+  m_EditorClassIdentifier: 
+  clips:
+  - {fileID: 8300000, guid: 995c5fbfde043d849b96a24cd9bd4c2e, type: 3}
+  looping: 0
+  volume: {x: 0.5276943, y: 0.5276943}
+  useSemitones: 0
+  semitones: {x: 0, y: 0}
+  pitch: {x: 1, y: 1}
+  playOrder: 1
+  playIndex: 0
