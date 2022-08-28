@@ -21,12 +21,16 @@ public class TipPopup : Popup
     private void UpdateTips()
     {
         float roundedValue = Mathf.Round(tipCounter * 100f) / 100f;
-        tipText.SetText("Tips: $"+roundedValue);
+        if(roundedValue <= 0)
+            tipText.SetText("Total Tips: $0");
+        else
+            tipText.SetText("Total Tips: $"+roundedValue);
     }
     
     public override void ShowPopup()
     {
         gameObject.SetActiveFast(true);
+        UpdateTips();
     }
 
     public override void HidePopup()

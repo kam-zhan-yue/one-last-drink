@@ -17,10 +17,10 @@ public class Character : ScriptableObject
     public AnimationClip hateAnimation;
     public AnimationClip loveAnimation;
 
-    private const float LOVE = 0.9f;
-    private const float SATISFIED = 0.7f;
-    private const float NEUTRAL = 0.5f;
-    private const float UNSATISFIED = 0.2f;
+    private const float LOVE = 0.8f;
+    private const float SATISFIED = 0.6f;
+    private const float NEUTRAL = 0.4f;
+    private const float UNSATISFIED = 0.1f;
     private const float HATE = 0f;
     
     public List<string> loveResponseList = new();

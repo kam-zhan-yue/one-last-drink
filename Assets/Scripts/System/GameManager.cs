@@ -23,6 +23,7 @@ public class GameManager : MonoBehaviour
     public void StartGame()
     {
         currentIndex = 0;
+        tips.Value = 0f;
         customerList = customerController.GenerateCustomerList();
     }
 

@@ -906,13 +906,13 @@ MonoBehaviour:
   m_Padding:
     m_Left: 25
     m_Right: 25
-    m_Top: 25
+    m_Top: 50
     m_Bottom: 25
   m_ChildAlignment: 0
   m_StartCorner: 0
   m_StartAxis: 0
   m_CellSize: {x: 256, y: 256}
-  m_Spacing: {x: 25, y: 25}
+  m_Spacing: {x: 30, y: 50}
   m_Constraint: 1
   m_ConstraintCount: 3
 --- !u!1 &315851060
@@ -12477,6 +12477,7 @@ GameObject:
   m_Component:
   - component: {fileID: 853572817}
   - component: {fileID: 853572818}
+  - component: {fileID: 853572819}
   m_Layer: 5
   m_Name: Tip Panel
   m_TagString: Untagged
@@ -12524,6 +12525,44 @@ MonoBehaviour:
     _variable: {fileID: 11400000, guid: 91cfb74e87c0dce4e9f749bcd092fac6, type: 2}
     _variableInstancer: {fileID: 0}
   tipText: {fileID: 480763361}
+--- !u!114 &853572819
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 853572816}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c7a13c337fc59432a95a17e5465b0c03, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _developerDescription: 
+  _unityEventResponse:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 853572818}
+        m_TargetAssemblyTypeName: TipPopup, Assembly-CSharp
+        m_MethodName: OnTipChanged
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  _actionResponses: []
+  _conditions: []
+  _operator: 0
+  _replayEventBufferOnRegister: 1
+  _eventReference:
+    _usage: 0
+    _event: {fileID: 11400000, guid: c43ab246a3171854990f3926f204478c, type: 2}
+    _eventInstancer: {fileID: 0}
+    _variable: {fileID: 0}
+    _variableInstancer: {fileID: 0}
 --- !u!1001 &859601989
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -22306,7 +22345,7 @@ Canvas:
   m_SortingBucketNormalizedSize: 0
   m_AdditionalShaderChannelsFlag: 25
   m_SortingLayerID: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 4
   m_TargetDisplay: 0
 --- !u!224 &2109643994
 RectTransform:

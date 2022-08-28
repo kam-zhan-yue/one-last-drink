@@ -27,7 +27,10 @@ public class GameEndPopup : Popup
         dialoguePopup.HidePopup();
         tipPopup.HidePopup();
         float roundedValue = Mathf.Round(tipCounter.Value * 100f) / 100f;
-        tipText.SetText("Total Tips: $"+roundedValue);
+        if(roundedValue <= 0)
+            tipText.SetText("Total Tips: $0");
+        else
+            tipText.SetText("Total Tips: $"+roundedValue);
     }
 
     public void TryAgain()
