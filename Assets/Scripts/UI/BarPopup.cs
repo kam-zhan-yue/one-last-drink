@@ -23,8 +23,9 @@ public class BarPopup : Popup
     [FoldoutGroup("UI Objects")] public Button submitButton;
 
     public float incrementValue = 0.5f;
+    public float pourTimeStep = 0.1f;
     public float timeMultiplier = 0.01f;
-    
+
     [NonSerialized, ShowInInspector, ReadOnly]
     private List<DrinkPopupItem> currentDrinkList = new();
 
@@ -100,7 +101,7 @@ public class BarPopup : Popup
         {
             mixer.IncrementDrink(_drink, incrementValue);
             UpdatePanel();
-            yield return Timing.WaitForSeconds(0.15f);
+            yield return Timing.WaitForSeconds(pourTimeStep);
         }
     }
     
