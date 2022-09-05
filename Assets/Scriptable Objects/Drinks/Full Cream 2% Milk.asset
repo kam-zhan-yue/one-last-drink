@@ -15,4 +15,4 @@ MonoBehaviour:
   sprite: {fileID: 1987611428, guid: 0829c9c0ffd7fa640842a8b02bbd4eb3, type: 3}
   openedSprite: {fileID: 1631796032, guid: 0829c9c0ffd7fa640842a8b02bbd4eb3, type: 3}
   colour: {r: 0.7960785, g: 0.7372549, b: 0.6509804, a: 1}
-  description: Delicious and nutricious
+  description: Delicious and nutritious
